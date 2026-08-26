@@ -1,7 +1,9 @@
-"use client";
-
-import { useState } from "react";
 import LeadForm from "../components/LeadForm";
+import Navbar from "../components/Navbar";
+import CaseShowcase from "../components/CaseShowcase";
+import DiagnosisSection from "../components/DiagnosisSection";
+import OperationsSection from "../components/OperationsSection";
+import TransitionBand from "../components/TransitionBand";
 
 const services = [
   {
@@ -63,168 +65,225 @@ const cases = [
     number: "01",
     category: "Gestão de perfil",
     title: "Construção de presença digital",
+    subtitle: "Posicionamento + conteúdo + comunidade",
     description:
-      "Estratégia de conteúdo, posicionamento, relacionamento com audiência e construção de uma presença digital consistente.",
-    metrics: ["Conteúdo", "Posicionamento", "Comunidade"],
+      "Um projeto desenvolvido para estruturar uma presença digital mais consistente, conectar conteúdo com posicionamento e criar relacionamento com a audiência.",
+    challenge:
+      "Transformar presença digital em algo estratégico, consistente e conectado aos objetivos do negócio.",
+    solution:
+      "Planejamento de conteúdo, organização da comunicação, posicionamento e acompanhamento contínuo.",
+    results: ["Estratégia", "Conteúdo", "Posicionamento"],
   },
   {
     number: "02",
     category: "Gestão de perfil",
-    title: "Estratégia e crescimento",
+    title: "Estratégia de crescimento",
+    subtitle: "Conteúdo + análise + consistência",
     description:
-      "Planejamento de conteúdo, identidade digital e acompanhamento contínuo para transformar presença em oportunidade.",
-    metrics: ["Estratégia", "Conteúdo", "Crescimento"],
+      "Um projeto focado em construir uma operação de conteúdo mais organizada, entender o comportamento da audiência e criar oportunidades de crescimento.",
+    challenge:
+      "Criar consistência e melhorar a capacidade de identificar o que realmente gera resultado.",
+    solution:
+      "Estratégia editorial, análise de desempenho e otimização contínua da presença digital.",
+    results: ["Conteúdo", "Análise", "Crescimento"],
   },
 ];
 
-export default function Home() {
-  const [menuOpen, setMenuOpen] = useState(false);
+const differences = [
+  {
+    number: "01",
+    title: "Visão de negócio",
+    description:
+      "Antes de pensar em conteúdo, entendemos objetivos, contexto, público e o momento da empresa.",
+  },
+  {
+    number: "02",
+    title: "Execução próxima",
+    description:
+      "Não entregamos apenas planejamento. Participamos da execução e acompanhamos o que acontece.",
+  },
+  {
+    number: "03",
+    title: "Tecnologia aplicada",
+    description:
+      "Usamos automação, sistemas e processos para tornar a operação mais eficiente.",
+  },
+  {
+    number: "04",
+    title: "Decisões por dados",
+    description:
+      "Acompanhamos métricas para aprender, ajustar estratégias e identificar novas oportunidades.",
+  },
+];
 
-  const closeMenu = () => setMenuOpen(false);
+const gallery = [
+  {
+    title: "Estratégia",
+    subtitle: "Pensar antes de executar",
+    image: "/images/gallery-01.jpg",
+    position: "center",
+  },
+  {
+    title: "Conteúdo",
+    subtitle: "Marcas que sabem se comunicar",
+    image: "/images/gallery-02.jpg",
+    position: "center",
+  },
+  {
+    title: "Dados",
+    subtitle: "Decisões baseadas em informação",
+    image: "/images/gallery-03.jpg",
+    position: "center",
+  },
+  {
+    title: "Comunidade",
+    subtitle: "Conexões que permanecem",
+    image: "/images/gallery-04.jpg",
+    position: "center",
+  },
+  {
+    title: "Tecnologia",
+    subtitle: "Estrutura para crescer",
+    image: "/images/gallery-05.jpg",
+    position: "center",
+  },
+  {
+    title: "Crescimento",
+    subtitle: "Resultado é consequência",
+    image: "/images/gallery-06.jpg",
+    position: "center",
+  },
+];
+
+function GalleryCard({
+  item,
+}: {
+  item: {
+    title: string;
+    subtitle: string;
+    image: string;
+    position: string;
+  };
+}) {
+  return (
+    <article
+      className="gallery-photo-card"
+      style={{
+        backgroundImage: `url("${item.image}")`,
+        backgroundPosition: item.position,
+      }}
+    >
+      <div className="gallery-photo-overlay" />
+
+      <div className="gallery-photo-grid" />
+
+      <div className="gallery-photo-number">FC</div>
+
+      <div className="gallery-photo-content">
+        <span>Future Club</span>
+
+        <h3>{item.title}</h3>
+
+        <p>{item.subtitle}</p>
+      </div>
+
+      <div className="gallery-photo-arrow">↗</div>
+    </article>
+  );
+}
+
+function MovingGallery() {
+  const rowOne = [...gallery, ...gallery];
+  const rowTwo = [...gallery, ...gallery];
 
   return (
-    <main className="min-h-screen overflow-hidden bg-[#08090d] text-white">
-      {/* ========================= NAVBAR ========================= */}
+    <section id="galeria" className="moving-gallery-section">
+      <div className="moving-gallery-heading">
+        <p>Estratégia em movimento</p>
 
-      <header className="fixed left-0 top-0 z-50 w-full border-b border-white/[0.06] bg-[#08090d]/80 backdrop-blur-xl">
-        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-8">
-          <a href="#" className="group flex items-center gap-3">
-            <div className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-white/[0.04] transition duration-300 group-hover:border-cyan-400/50 group-hover:bg-cyan-400/10">
-              <span className="text-sm font-semibold">F</span>
-            </div>
+        <h2>
+          Diferentes partes de um negócio.
+          <span>Uma visão integrada.</span>
+        </h2>
+      </div>
 
-            <span className="text-lg font-semibold tracking-[-0.03em]">
-              future<span className="text-cyan-400">club</span>
-            </span>
-          </a>
-
-          <nav className="hidden items-center gap-7 lg:flex">
-            <a
-              href="#sobre"
-              className="text-sm text-white/55 transition hover:text-white"
-            >
-              Sobre nós
-            </a>
-
-            <a
-              href="#visao"
-              className="text-sm text-white/55 transition hover:text-white"
-            >
-              Nossa visão
-            </a>
-
-            <a
-              href="#servicos"
-              className="text-sm text-white/55 transition hover:text-white"
-            >
-              Serviços
-            </a>
-
-            <a
-              href="#processo"
-              className="text-sm text-white/55 transition hover:text-white"
-            >
-              Método
-            </a>
-
-            <a
-              href="#cases"
-              className="text-sm text-white/55 transition hover:text-white"
-            >
-              Cases
-            </a>
-
-            <a
-              href="#equipe"
-              className="text-sm text-white/55 transition hover:text-white"
-            >
-              Equipe
-            </a>
-          </nav>
-
-          <a
-            href="#contato"
-            className="hidden rounded-full border border-white/15 bg-white/[0.05] px-5 py-2.5 text-sm font-medium transition duration-300 hover:border-cyan-400/40 hover:bg-cyan-400/10 md:inline-flex"
-          >
-            Vamos conversar
-          </a>
-
-          <button
-            type="button"
-            aria-label="Abrir menu"
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] md:hidden"
-          >
-            <div className="space-y-1.5">
-              <span className="block h-px w-5 bg-white" />
-              <span className="block h-px w-5 bg-white" />
-              <span className="block h-px w-5 bg-white" />
-            </div>
-          </button>
+      <div className="moving-gallery-row">
+        <div className="moving-track moving-left">
+          {rowOne.map((item, index) => (
+            <GalleryCard
+              key={`row-one-${item.title}-${index}`}
+              item={item}
+            />
+          ))}
         </div>
+      </div>
 
-        {menuOpen && (
-          <div className="border-t border-white/[0.06] bg-[#08090d] px-6 py-6 md:hidden">
-            <nav className="flex flex-col gap-5">
-              {[
-                ["#sobre", "Sobre nós"],
-                ["#visao", "Nossa visão"],
-                ["#servicos", "Serviços"],
-                ["#processo", "Método"],
-                ["#cases", "Cases"],
-                ["#equipe", "Equipe"],
-                ["#contato", "Vamos conversar"],
-              ].map(([href, label]) => (
-                <a
-                  key={href}
-                  href={href}
-                  onClick={closeMenu}
-                  className="text-sm text-white/70 transition hover:text-white"
-                >
-                  {label}
-                </a>
-              ))}
-            </nav>
-          </div>
-        )}
-      </header>
+      <div className="moving-gallery-row moving-gallery-row-second">
+        <div className="moving-track moving-right">
+          {rowTwo.map((item, index) => (
+            <GalleryCard
+              key={`row-two-${item.title}-${index}`}
+              item={item}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
 
-      {/* ========================= HERO ========================= */}
+export default function Home() {
+  return (
+    <main className="min-h-screen overflow-hidden bg-[#08090d] text-white">
+      <Navbar />
 
-      <section className="relative flex min-h-screen items-center overflow-hidden pt-20 animate-fade-in">
-        <div className="pointer-events-none absolute left-1/2 top-1/2 h-[700px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyan-500/[0.06] blur-[140px]" />
+      {/* ===================================================== */}
+      {/* HERO */}
+      {/* ===================================================== */}
 
-        <div className="pointer-events-none absolute right-[-180px] top-[10%] h-[400px] w-[400px] rounded-full bg-blue-500/[0.05] blur-[120px]" />
+      <section className="relative flex min-h-screen items-center overflow-hidden pt-20">
+        <div className="pointer-events-none absolute left-[45%] top-1/2 h-[700px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyan-400/[0.055] blur-[150px]" />
+
+        <div className="pointer-events-none absolute right-[-180px] top-[12%] h-[430px] w-[430px] rounded-full bg-blue-500/[0.05] blur-[130px]" />
 
         <div
-          className="pointer-events-none absolute inset-0 opacity-[0.06]"
+          className="pointer-events-none absolute inset-0 opacity-[0.055]"
           style={{
             backgroundImage:
-              "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)",
+              "linear-gradient(rgba(255,255,255,0.55) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.55) 1px, transparent 1px)",
             backgroundSize: "80px 80px",
             maskImage:
-              "radial-gradient(circle at center, black 20%, transparent 75%)",
+              "radial-gradient(circle at center, black 12%, transparent 72%)",
+            WebkitMaskImage:
+              "radial-gradient(circle at center, black 12%, transparent 72%)",
           }}
         />
 
-        <div className="relative mx-auto grid w-full max-w-7xl items-center gap-16 px-6 py-20 lg:grid-cols-[1.1fr_0.9fr] lg:px-8 lg:py-28">
-          <div className="max-w-3xl">
-            <div className="mb-8 inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2">
-              <span className="h-2 w-2 rounded-full bg-cyan-400 shadow-[0_0_15px_rgba(34,211,238,0.8)]" />
+        <div className="relative mx-auto grid w-full max-w-7xl items-center gap-16 px-6 py-20 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:py-24">
+          <div className="max-w-3xl animate-fade-up">
+            <div className="mb-8 inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2.5 shadow-[0_0_30px_rgba(34,211,238,0.03)]">
+              <span className="h-2 w-2 animate-pulse-dot rounded-full bg-cyan-300" />
 
-              <span className="text-xs font-medium uppercase tracking-[0.18em] text-white/60">
+              <span className="text-[11px] font-medium uppercase tracking-[0.2em] text-white/55">
                 Estratégia • Tecnologia • Crescimento
               </span>
             </div>
 
-            <h1 className="max-w-4xl text-5xl font-semibold leading-[0.95] tracking-[-0.055em] sm:text-6xl lg:text-7xl xl:text-8xl">
-              Crescimento não acontece por acaso.
-              <span className="mt-4 block text-white/45">
-                Acontece com planejamento.
-              </span>
+            <h1 className="max-w-5xl text-5xl font-semibold leading-[0.92] tracking-[-0.06em] sm:text-6xl md:text-7xl lg:text-[5.6rem] xl:text-[6.5rem]">
+              Crescimento
+              <span className="block text-white/90">não acontece</span>
+              <span className="block text-white/35">por acaso.</span>
             </h1>
 
-            <p className="mt-8 max-w-2xl text-base leading-7 text-white/55 sm:text-lg">
+            <div className="mt-6 flex items-center gap-4">
+              <div className="h-px w-12 bg-cyan-300/60" />
+
+              <p className="text-xl font-medium tracking-[-0.02em] text-white/75 sm:text-2xl">
+                Acontece com planejamento.
+              </p>
+            </div>
+
+            <p className="mt-8 max-w-2xl text-base leading-7 text-white/50 sm:text-lg">
               A Future Club ajuda negócios a transformar presença digital em
               crescimento real através de estratégia, posicionamento,
               conteúdo, tecnologia, automação e dados.
@@ -232,113 +291,124 @@ export default function Home() {
 
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
               <a
-                href="#contato"
-                className="group inline-flex items-center justify-center gap-3 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-black transition duration-300 hover:bg-cyan-300"
+                href="#diagnostico"
+                className="group inline-flex items-center justify-center gap-4 rounded-full bg-white px-7 py-4 text-sm font-semibold text-black shadow-[0_0_40px_rgba(255,255,255,0.06)] transition duration-300 hover:bg-cyan-300 hover:shadow-[0_0_45px_rgba(34,211,238,0.12)]"
               >
                 Quero transformar meu negócio
+
                 <span className="transition-transform duration-300 group-hover:translate-x-1">
                   →
                 </span>
               </a>
 
               <a
-                href="#sobre"
-                className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/[0.03] px-6 py-3.5 text-sm font-medium text-white/80 transition duration-300 hover:border-white/30 hover:bg-white/[0.07] hover:text-white"
+                href="#galeria"
+                className="group inline-flex items-center justify-center gap-3 rounded-full border border-white/10 bg-white/[0.025] px-7 py-4 text-sm font-medium text-white/70 transition duration-300 hover:border-white/20 hover:bg-white/[0.05] hover:text-white"
               >
-                Conhecer a Future Club
+                Explorar a Future Club
+
+                <span className="transition-transform duration-300 group-hover:translate-y-0.5">
+                  ↓
+                </span>
               </a>
-            </div>
-
-            <div className="mt-12 flex flex-wrap gap-x-8 gap-y-4 border-t border-white/[0.08] pt-7">
-              <div>
-                <p className="text-xs uppercase tracking-[0.15em] text-white/35">
-                  Foco
-                </p>
-                <p className="mt-1 text-sm text-white/75">
-                  Pequenos negócios
-                </p>
-              </div>
-
-              <div>
-                <p className="text-xs uppercase tracking-[0.15em] text-white/35">
-                  Atuação
-                </p>
-                <p className="mt-1 text-sm text-white/75">
-                  Digital + Tecnologia
-                </p>
-              </div>
-
-              <div>
-                <p className="text-xs uppercase tracking-[0.15em] text-white/35">
-                  Visão
-                </p>
-                <p className="mt-1 text-sm text-white/75">
-                  Crescimento sustentável
-                </p>
-              </div>
             </div>
           </div>
 
           <div className="relative mx-auto hidden w-full max-w-xl animate-fade-in lg:block">
             <div className="relative aspect-square">
-              <div className="absolute inset-[7%] rounded-full border border-white/[0.08]" />
+              <div className="absolute inset-[5%] rounded-full border border-white/[0.07]" />
 
-              <div className="absolute inset-[17%] rounded-full border border-cyan-400/10" />
+              <div className="absolute inset-[14%] rounded-full border border-cyan-300/[0.08]" />
 
-              <div className="absolute left-1/2 top-1/2 flex h-52 w-52 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-white/10 bg-white/[0.035] shadow-[0_0_100px_rgba(34,211,238,0.08)] backdrop-blur-xl animate-float">
+              <div className="absolute inset-[25%] rounded-full border border-white/[0.05]" />
+
+              <div className="absolute left-1/2 top-1/2 flex h-52 w-52 -translate-x-1/2 -translate-y-1/2 animate-float items-center justify-center rounded-full border border-white/10 bg-[#0d1016]/80 shadow-[0_0_100px_rgba(34,211,238,0.09)] backdrop-blur-xl">
                 <div className="text-center">
-                  <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full border border-cyan-400/20 bg-cyan-400/10">
-                    <span className="text-lg font-semibold text-cyan-300">
+                  <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full border border-cyan-400/25 bg-cyan-400/[0.08] shadow-[0_0_30px_rgba(34,211,238,0.08)]">
+                    <span className="text-xl font-semibold text-cyan-300">
                       F
                     </span>
                   </div>
 
-                  <p className="text-xs uppercase tracking-[0.25em] text-white/35">
+                  <p className="text-[10px] uppercase tracking-[0.3em] text-white/30">
                     Future Club
                   </p>
 
-                  <p className="mt-2 text-sm font-medium text-white/85">
-                    Estratégia em movimento.
+                  <p className="mt-3 text-sm font-medium text-white/80">
+                    Planejamento em movimento.
                   </p>
                 </div>
               </div>
 
-              <div className="absolute left-[13%] top-[26%] flex h-16 w-16 items-center justify-center rounded-2xl border border-white/10 bg-[#11141b]/90 shadow-2xl backdrop-blur-xl">
-                <span className="text-xs font-semibold text-white/70">
-                  MARCA
-                </span>
+              <div className="absolute left-[5%] top-[25%] animate-float-slow">
+                <div className="rounded-2xl border border-white/10 bg-[#11141b]/90 px-5 py-4 shadow-2xl backdrop-blur-xl">
+                  <p className="text-[9px] uppercase tracking-[0.2em] text-white/25">
+                    Estratégia
+                  </p>
+
+                  <p className="mt-2 text-xs font-semibold text-white/75">
+                    MARCA
+                  </p>
+                </div>
               </div>
 
-              <div className="absolute right-[10%] top-[19%] flex h-16 w-16 items-center justify-center rounded-2xl border border-cyan-400/20 bg-cyan-400/[0.07] shadow-2xl backdrop-blur-xl">
-                <span className="text-xs font-semibold text-cyan-300">
-                  DADOS
-                </span>
+              <div className="absolute right-[2%] top-[17%] animate-float">
+                <div className="rounded-2xl border border-cyan-400/20 bg-cyan-400/[0.06] px-5 py-4 shadow-2xl backdrop-blur-xl">
+                  <p className="text-[9px] uppercase tracking-[0.2em] text-cyan-300/50">
+                    Inteligência
+                  </p>
+
+                  <p className="mt-2 text-xs font-semibold text-cyan-300">
+                    DADOS
+                  </p>
+                </div>
               </div>
 
-              <div className="absolute bottom-[22%] left-[7%] flex h-16 w-16 items-center justify-center rounded-2xl border border-white/10 bg-[#11141b]/90 shadow-2xl backdrop-blur-xl">
-                <span className="text-xs font-semibold text-white/70">
-                  CONTEÚDO
-                </span>
+              <div className="absolute bottom-[18%] left-0 animate-float-slow">
+                <div className="rounded-2xl border border-white/10 bg-[#11141b]/90 px-5 py-4 shadow-2xl backdrop-blur-xl">
+                  <p className="text-[9px] uppercase tracking-[0.2em] text-white/25">
+                    Presença
+                  </p>
+
+                  <p className="mt-2 text-xs font-semibold text-white/75">
+                    CONTEÚDO
+                  </p>
+                </div>
               </div>
 
-              <div className="absolute bottom-[12%] right-[18%] flex h-16 w-16 items-center justify-center rounded-2xl border border-white/10 bg-[#11141b]/90 shadow-2xl backdrop-blur-xl">
-                <span className="text-xs font-semibold text-white/70">
-                  AUTO
-                </span>
+              <div className="absolute bottom-[8%] right-[8%] animate-float">
+                <div className="rounded-2xl border border-white/10 bg-[#11141b]/90 px-5 py-4 shadow-2xl backdrop-blur-xl">
+                  <p className="text-[9px] uppercase tracking-[0.2em] text-white/25">
+                    Operação
+                  </p>
+
+                  <p className="mt-2 text-xs font-semibold text-white/75">
+                    AUTOMAÇÃO
+                  </p>
+                </div>
               </div>
 
-              <div className="absolute left-[31%] top-[23%] h-2 w-2 animate-pulse-dot rounded-full bg-cyan-300 shadow-[0_0_20px_rgba(103,232,249,0.9)]" />
+              <div className="absolute left-[27%] top-[21%] h-2 w-2 animate-pulse-dot rounded-full bg-cyan-300" />
 
-             <div className="absolute right-[27%] top-[32%] h-2 w-2 animate-pulse-dot rounded-full bg-cyan-300 shadow-[0_0_20px_rgba(103,232,249,0.9)]" />
+              <div className="absolute right-[23%] top-[31%] h-2 w-2 animate-pulse-dot rounded-full bg-cyan-300" />
 
-              <div className="absolute bottom-[28%] left-[24%] h-2 w-2 animate-pulse-dot rounded-full bg-cyan-300 shadow-[0_0_20px_rgba(103,232,249,0.9)]" />
-              <div className="absolute left-[25%] top-[48%] h-px w-[50%] bg-gradient-to-r from-transparent via-cyan-300/20 to-transparent" />
+              <div className="absolute bottom-[27%] left-[20%] h-2 w-2 animate-pulse-dot rounded-full bg-cyan-300" />
+
+              <div className="absolute bottom-[19%] right-[34%] h-1.5 w-1.5 animate-pulse-dot rounded-full bg-cyan-300" />
+
+              <div className="absolute left-[29%] top-[23%] h-px w-[20%] rotate-[28deg] bg-gradient-to-r from-cyan-300/30 to-transparent" />
+
+              <div className="absolute right-[23%] top-[34%] h-px w-[18%] -rotate-[18deg] bg-gradient-to-l from-cyan-300/25 to-transparent" />
+
+              <div className="absolute bottom-[29%] left-[26%] h-px w-[22%] -rotate-[22deg] bg-gradient-to-r from-cyan-300/25 to-transparent" />
             </div>
           </div>
         </div>
       </section>
 
-      {/* ========================= SOBRE ========================= */}
+      {/* ===================================================== */}
+      {/* SOBRE */}
+      {/* ===================================================== */}
 
       <section
         id="sobre"
@@ -360,7 +430,7 @@ export default function Home() {
 
           <div>
             <h2 className="max-w-4xl text-4xl font-semibold leading-tight tracking-[-0.045em] sm:text-5xl lg:text-6xl">
-              Não somos apenas mais uma empresa cuidando do seu Instagram.
+              Não somos apenas uma empresa cuidando do seu Instagram.
             </h2>
 
             <div className="mt-8 grid gap-6 text-base leading-7 text-white/50 sm:text-lg">
@@ -416,7 +486,18 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ========================= VISÃO ========================= */}
+      {/* ===================================================== */}
+      {/* GALERIA */}
+      {/* ===================================================== */}
+<OperationsSection />
+
+<DiagnosisSection />
+      <MovingGallery />
+      <TransitionBand />
+
+      {/* ===================================================== */}
+      {/* VISÃO */}
+      {/* ===================================================== */}
 
       <section
         id="visao"
@@ -469,14 +550,16 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ========================= PROBLEMA ========================= */}
+      {/* ===================================================== */}
+      {/* PROBLEMA */}
+      {/* ===================================================== */}
 
       <section
         id="problema"
         className="border-t border-white/[0.06] bg-[#0a0c11] px-6 py-28 lg:px-8"
       >
         <div className="mx-auto max-w-7xl">
-        <div className="max-w-3xl animate-fade-up">
+          <div className="max-w-3xl">
             <p className="text-xs font-medium uppercase tracking-[0.25em] text-cyan-300/70">
               03 — O problema
             </p>
@@ -510,17 +593,132 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ========================= SERVIÇOS ========================= */}
+      {/* ===================================================== */}
+      {/* DIFERENCIAIS */}
+      {/* ===================================================== */}
+
+      <section
+        id="diferenciais"
+        className="relative overflow-hidden border-t border-white/[0.06] bg-[#08090d] px-6 py-32 lg:px-8"
+      >
+        <div className="pointer-events-none absolute left-[-220px] top-1/2 h-[500px] w-[500px] -translate-y-1/2 rounded-full bg-cyan-500/[0.045] blur-[130px]" />
+
+        <div className="relative mx-auto max-w-7xl">
+          <div className="grid gap-16 lg:grid-cols-[0.8fr_1.2fr]">
+            <div>
+              <p className="text-xs font-medium uppercase tracking-[0.25em] text-cyan-300/70">
+                04 — Por que Future Club
+              </p>
+
+              <h2 className="mt-6 max-w-lg text-4xl font-semibold leading-tight tracking-[-0.045em] sm:text-5xl lg:text-6xl">
+                Não tratamos o digital como uma tarefa isolada.
+              </h2>
+
+              <p className="mt-6 max-w-md text-base leading-7 text-white/45 sm:text-lg">
+                Para nós, marketing, conteúdo, tecnologia e dados fazem parte
+                do mesmo negócio.
+              </p>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              {differences.map((item) => (
+                <article
+                  key={item.number}
+                  className="group rounded-[1.75rem] border border-white/[0.08] bg-white/[0.025] p-7 transition duration-500 hover:-translate-y-1 hover:border-cyan-400/20 hover:bg-cyan-400/[0.035]"
+                >
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs text-cyan-300/60">
+                      {item.number}
+                    </span>
+
+                    <span className="text-white/15 transition group-hover:text-cyan-300/50">
+                      ↗
+                    </span>
+                  </div>
+
+                  <h3 className="mt-12 text-xl font-medium">{item.title}</h3>
+
+                  <p className="mt-3 text-sm leading-6 text-white/40">
+                    {item.description}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-16 grid overflow-hidden rounded-[2rem] border border-white/[0.08] md:grid-cols-2">
+            <div className="border-b border-white/[0.08] bg-[#0d1016] p-8 md:border-b-0 md:border-r lg:p-10">
+              <p className="text-xs uppercase tracking-[0.2em] text-white/25">
+                Modelo tradicional
+              </p>
+
+              <h3 className="mt-4 text-2xl font-medium text-white/55">
+                Cada serviço em uma caixa.
+              </h3>
+
+              <div className="mt-8 space-y-3">
+                {[
+                  "Conteúdo separado da estratégia",
+                  "Marketing separado dos dados",
+                  "Tecnologia tratada como extra",
+                  "Execução sem visão completa",
+                ].map((item) => (
+                  <div
+                    key={item}
+                    className="flex items-center gap-3 rounded-xl border border-white/[0.06] bg-white/[0.02] px-4 py-3"
+                  >
+                    <span className="text-xs text-white/20">×</span>
+
+                    <span className="text-sm text-white/35">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="bg-cyan-400/[0.035] p-8 lg:p-10">
+              <p className="text-xs uppercase tracking-[0.2em] text-cyan-300/60">
+                Future Club
+              </p>
+
+              <h3 className="mt-4 text-2xl font-medium">
+                Tudo conectado ao negócio.
+              </h3>
+
+              <div className="mt-8 space-y-3">
+                {[
+                  "Estratégia orientando o conteúdo",
+                  "Dados orientando as decisões",
+                  "Tecnologia melhorando a operação",
+                  "Execução conectada ao objetivo",
+                ].map((item) => (
+                  <div
+                    key={item}
+                    className="flex items-center gap-3 rounded-xl border border-cyan-400/10 bg-cyan-400/[0.04] px-4 py-3"
+                  >
+                    <span className="text-xs text-cyan-300">✓</span>
+
+                    <span className="text-sm text-white/60">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===================================================== */}
+      {/* SERVIÇOS */}
+      {/* ===================================================== */}
 
       <section
         id="servicos"
-        className="border-t border-white/[0.06] bg-[#08090d] px-6 py-32 lg:px-8"
+        className="border-t border-white/[0.06] bg-[#0a0c11] px-6 py-32 lg:px-8"
       >
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
             <div>
               <p className="text-xs font-medium uppercase tracking-[0.25em] text-cyan-300/70">
-                04 — O que fazemos
+                05 — O que fazemos
               </p>
 
               <h2 className="mt-6 max-w-md text-4xl font-semibold leading-tight tracking-[-0.04em] sm:text-5xl">
@@ -570,15 +768,17 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ========================= PROCESSO ========================= */}
+      {/* ===================================================== */}
+      {/* PROCESSO */}
+      {/* ===================================================== */}
 
       <section
         id="processo"
-        className="relative overflow-hidden border-t border-white/[0.06] bg-[#0a0c11] px-6 py-32 lg:px-8"
+        className="relative overflow-hidden border-t border-white/[0.06] bg-[#08090d] px-6 py-32 lg:px-8"
       >
         <div className="mx-auto max-w-7xl">
           <p className="text-xs font-medium uppercase tracking-[0.25em] text-cyan-300/70">
-            05 — Nosso método
+            06 — Nosso método
           </p>
 
           <h2 className="mt-6 max-w-4xl text-4xl font-semibold tracking-[-0.045em] sm:text-5xl lg:text-6xl">
@@ -604,109 +804,147 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ========================= CASES ========================= */}
+      {/* ===================================================== */}
+      {/* PORTFÓLIO */}
+      {/* ===================================================== */}
 
       <section
         id="cases"
-        className="border-t border-white/[0.06] bg-[#08090d] px-6 py-32 lg:px-8"
+        className="border-t border-white/[0.06] bg-[#0a0c11] px-6 py-32 lg:px-8"
       >
         <div className="mx-auto max-w-7xl">
-          <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
-            <div>
-              <p className="text-xs font-medium uppercase tracking-[0.25em] text-cyan-300/70">
-                06 — Portfólio
-              </p>
+          <div className="max-w-4xl">
+            <p className="text-xs font-medium uppercase tracking-[0.25em] text-cyan-300/70">
+              07 — Portfólio
+            </p>
 
-              <h2 className="mt-6 max-w-3xl text-4xl font-semibold tracking-[-0.04em] sm:text-5xl lg:text-6xl">
-                Trabalho que podemos mostrar.
-              </h2>
-            </div>
+            <h2 className="mt-6 text-4xl font-semibold leading-tight tracking-[-0.045em] sm:text-5xl lg:text-6xl">
+              Não mostramos apenas o que fazemos.
+              <span className="block text-white/30">
+                Mostramos como pensamos.
+              </span>
+            </h2>
 
-            <p className="max-w-sm text-sm leading-6 text-white/40">
-              Vamos transformar nossa experiência em cases completos,
-              mostrando contexto, estratégia, execução e evolução.
+            <p className="mt-6 max-w-2xl text-base leading-7 text-white/45 sm:text-lg">
+              Cada projeto começa com um problema. A partir dele, construímos
+              estratégia, execução e acompanhamento.
             </p>
           </div>
 
-          <div className="mt-16 grid gap-6 lg:grid-cols-2">
+          <div className="mt-16 space-y-8">
             {cases.map((item) => (
               <article
                 key={item.number}
-                className="group overflow-hidden rounded-[2rem] border border-white/[0.08] bg-[#0d1016] transition duration-500 hover:-translate-y-1 hover:border-cyan-400/20"
+                className="group overflow-hidden rounded-[2rem] border border-white/[0.08] bg-[#0d1016] transition duration-500 hover:border-cyan-400/20"
               >
-                <div className="relative aspect-[16/10] overflow-hidden bg-gradient-to-br from-cyan-400/[0.08] via-[#11151d] to-[#08090d]">
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(34,211,238,0.16),transparent_38%)] transition duration-500 group-hover:scale-110" />
+                <div className="grid lg:grid-cols-[0.95fr_1.05fr]">
+                  <div className="relative min-h-[380px] overflow-hidden bg-gradient-to-br from-cyan-400/[0.08] via-[#11151d] to-[#08090d]">
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(34,211,238,0.18),transparent_42%)] transition duration-700 group-hover:scale-110" />
 
-                  <div className="absolute left-7 top-7 rounded-full border border-white/10 bg-black/20 px-3 py-1.5 text-[11px] text-white/50 backdrop-blur-md">
-                    {item.category}
+                    <div className="absolute inset-[10%] rounded-[2rem] border border-white/[0.06]" />
+
+                    <div className="absolute inset-[18%] rounded-[1.5rem] border border-cyan-400/[0.08]" />
+
+                    <div className="absolute left-1/2 top-1/2 flex h-36 w-36 -translate-x-1/2 -translate-y-1/2 animate-float items-center justify-center rounded-full border border-white/10 bg-[#0d1016]/75 shadow-[0_0_80px_rgba(34,211,238,0.08)] backdrop-blur-xl">
+                      <div className="text-center">
+                        <span className="text-xs uppercase tracking-[0.25em] text-cyan-300/60">
+                          Case
+                        </span>
+
+                        <p className="mt-2 text-3xl font-semibold">
+                          {item.number}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="absolute left-8 top-8 rounded-full border border-white/10 bg-black/20 px-3 py-1.5 text-[11px] text-white/50 backdrop-blur-md">
+                      {item.category}
+                    </div>
+
+                    <div className="absolute bottom-8 left-8 right-8">
+                      <p className="text-xs uppercase tracking-[0.2em] text-cyan-300/60">
+                        Future Club
+                      </p>
+
+                      <p className="mt-2 text-sm text-white/45">
+                        {item.subtitle}
+                      </p>
+                    </div>
                   </div>
 
-                  <div className="absolute bottom-7 left-7">
-                    <span className="text-xs uppercase tracking-[0.2em] text-cyan-300/60">
-                      Case {item.number}
-                    </span>
-                  </div>
+                  <div className="p-8 lg:p-10">
+                    <div className="flex items-start justify-between gap-5">
+                      <div>
+                        <span className="text-xs uppercase tracking-[0.2em] text-cyan-300/60">
+                          Projeto {item.number}
+                        </span>
 
-                  <div className="absolute bottom-7 right-7 flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-lg transition duration-300 group-hover:border-cyan-400/30 group-hover:bg-cyan-400/10">
-                    ↗
-                  </div>
-                </div>
+                        <h3 className="mt-3 text-3xl font-medium tracking-[-0.03em] sm:text-4xl">
+                          {item.title}
+                        </h3>
+                      </div>
 
-                <div className="p-8">
-                  <h3 className="text-2xl font-medium">{item.title}</h3>
+                      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-white/45 transition duration-300 group-hover:border-cyan-400/30 group-hover:bg-cyan-400/10 group-hover:text-cyan-300">
+                        ↗
+                      </div>
+                    </div>
 
-                  <p className="mt-4 max-w-xl text-sm leading-6 text-white/45">
-                    {item.description}
-                  </p>
+                    <p className="mt-6 text-base leading-7 text-white/50">
+                      {item.description}
+                    </p>
 
-                  <div className="mt-7 flex flex-wrap gap-2">
-                    {item.metrics.map((metric) => (
-                      <span
-                        key={metric}
-                        className="rounded-full border border-white/[0.08] px-3 py-1.5 text-[11px] text-white/45"
-                      >
-                        {metric}
-                      </span>
-                    ))}
+                    <div className="mt-10 grid gap-8 sm:grid-cols-2">
+                      <div>
+                        <p className="text-xs uppercase tracking-[0.18em] text-white/25">
+                          Desafio
+                        </p>
+
+                        <p className="mt-3 text-sm leading-6 text-white/45">
+                          {item.challenge}
+                        </p>
+                      </div>
+
+                      <div>
+                        <p className="text-xs uppercase tracking-[0.18em] text-white/25">
+                          Solução
+                        </p>
+
+                        <p className="mt-3 text-sm leading-6 text-white/45">
+                          {item.solution}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="mt-10 flex flex-wrap gap-2 border-t border-white/[0.07] pt-7">
+                      {item.results.map((result) => (
+                        <span
+                          key={result}
+                          className="rounded-full border border-white/[0.08] bg-white/[0.02] px-3 py-1.5 text-[11px] text-white/45"
+                        >
+                          {result}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </article>
             ))}
           </div>
-
-          <div className="mt-6 rounded-[2rem] border border-dashed border-white/10 bg-white/[0.015] p-8">
-            <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
-              <div>
-                <p className="text-xs uppercase tracking-[0.2em] text-white/25">
-                  Próximos projetos
-                </p>
-
-                <h3 className="mt-2 text-xl font-medium">
-                  Mais cases serão adicionados conforme nossa operação cresce.
-                </h3>
-              </div>
-
-              <a
-                href="#contato"
-                className="inline-flex w-fit rounded-full border border-white/10 px-5 py-2.5 text-sm text-white/70 transition hover:border-cyan-400/30 hover:bg-cyan-400/[0.06] hover:text-white"
-              >
-                Quero fazer parte
-              </a>
-            </div>
-          </div>
         </div>
       </section>
-
-      {/* ========================= EQUIPE ========================= */}
+<CaseShowcase />
+      {/* ===================================================== */}
+      {/* EQUIPE */}
+      {/* ===================================================== */}
 
       <section
         id="equipe"
-        className="border-t border-white/[0.06] bg-[#0a0c11] px-6 py-32 lg:px-8"
+        className="border-t border-white/[0.06] bg-[#08090d] px-6 py-32 lg:px-8"
       >
         <div className="mx-auto max-w-7xl">
           <div className="max-w-3xl">
             <p className="text-xs font-medium uppercase tracking-[0.25em] text-cyan-300/70">
-              07 — Quem está por trás
+              08 — Quem está por trás
             </p>
 
             <h2 className="mt-6 text-4xl font-semibold tracking-[-0.045em] sm:text-5xl lg:text-6xl">
@@ -829,98 +1067,42 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ========================= FUTURE CLUB OS ========================= */}
+      {/* ===================================================== */}
+      {/* FUTURE CLUB */}
+      {/* ===================================================== */}
 
-      <section className="relative overflow-hidden border-t border-white/[0.06] bg-[#08090d] px-6 py-32 lg:px-8">
-        <div className="pointer-events-none absolute left-1/3 top-1/2 h-[450px] w-[450px] -translate-y-1/2 rounded-full bg-cyan-500/[0.05] blur-[120px]" />
-
-        <div className="relative mx-auto grid max-w-7xl items-center gap-16 lg:grid-cols-[0.8fr_1.2fr]">
-          <div>
-            <p className="text-xs font-medium uppercase tracking-[0.25em] text-cyan-300/70">
-              08 — O próximo passo
+      <section className="border-t border-white/[0.06] bg-[#0a0c11] px-6 py-32 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <div className="rounded-[2rem] border border-white/[0.08] bg-white/[0.025] p-8 text-center lg:p-16">
+            <p className="text-xs uppercase tracking-[0.25em] text-cyan-300/60">
+              O que vem depois
             </p>
 
-            <h2 className="mt-6 text-4xl font-semibold leading-tight tracking-[-0.045em] sm:text-5xl">
-              Nosso trabalho não termina no Instagram.
+            <h2 className="mx-auto mt-6 max-w-4xl text-4xl font-semibold tracking-[-0.045em] sm:text-5xl lg:text-6xl">
+              A Future Club está só começando.
             </h2>
 
-            <p className="mt-6 max-w-lg text-base leading-7 text-white/45">
-              Estamos construindo uma estrutura própria para organizar
-              processos, dados, clientes e automações em um único lugar.
+            <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-white/40 sm:text-lg">
+              Estamos construindo novas formas de conectar estratégia,
+              tecnologia, dados e operação.
             </p>
-
-            <div className="mt-8 inline-flex rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-xs uppercase tracking-[0.16em] text-white/40">
-              Future Club OS — em desenvolvimento
-            </div>
-          </div>
-
-          <div className="relative rounded-[2rem] border border-white/[0.08] bg-[#0d1016] p-5 shadow-2xl">
-            <div className="rounded-[1.5rem] border border-white/[0.07] bg-[#090b10] p-5">
-              <div className="flex items-center justify-between border-b border-white/[0.07] pb-5">
-                <div>
-                  <p className="text-[10px] uppercase tracking-[0.2em] text-white/30">
-                    Future Club OS
-                  </p>
-
-                  <p className="mt-2 text-sm font-medium">Visão geral</p>
-                </div>
-
-                <div className="h-8 w-8 rounded-full border border-cyan-400/20 bg-cyan-400/10" />
-              </div>
-
-              <div className="mt-5 grid gap-4 sm:grid-cols-3">
-                {[
-                  ["Clientes", "24"],
-                  ["Projetos", "18"],
-                  ["Oportunidades", "42"],
-                ].map(([label, value]) => (
-                  <div
-                    key={label}
-                    className="rounded-2xl border border-white/[0.07] bg-white/[0.02] p-4"
-                  >
-                    <p className="text-[10px] uppercase tracking-[0.16em] text-white/25">
-                      {label}
-                    </p>
-
-                    <p className="mt-3 text-2xl font-semibold">{value}</p>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-4 rounded-2xl border border-white/[0.07] bg-white/[0.02] p-5">
-                <div className="flex items-end gap-2">
-                  {[28, 42, 35, 58, 48, 67, 78, 61, 84, 74, 92, 88].map(
-                    (height, index) => (
-                      <div
-                        key={index}
-                        className="flex-1 rounded-t-md bg-cyan-300/30 transition hover:bg-cyan-300/60"
-                        style={{ height: `${height}px` }}
-                      />
-                    ),
-                  )}
-                </div>
-
-                <div className="mt-4 flex items-center justify-between text-[10px] text-white/25">
-                  <span>Performance</span>
-                  <span>Últimos 12 meses</span>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
-
-      {/* ========================= CTA ========================= */}
+<TransitionBand />
+      {/* ===================================================== */}
+      {/* CTA */}
+      {/* ===================================================== */}
 
       <section
         id="contato"
-        className="relative overflow-hidden border-t border-white/[0.06] bg-[#0a0c11] px-6 py-32 lg:px-8"
+        className="relative overflow-hidden border-t border-white/[0.06] bg-[#08090d] px-6 py-32 lg:px-8"
       >
         <div className="pointer-events-none absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyan-500/[0.07] blur-[120px]" />
 
         <div className="relative mx-auto max-w-5xl text-center">
           <p className="text-xs font-medium uppercase tracking-[0.25em] text-cyan-300/70">
-            09 — Próximo passo
+            10 — Próximo passo
           </p>
 
           <h2 className="mt-6 text-5xl font-semibold leading-[0.95] tracking-[-0.05em] sm:text-6xl lg:text-8xl">
@@ -934,19 +1116,26 @@ export default function Home() {
 
           <a
             href="#diagnostico"
-            className="mt-10 inline-flex items-center gap-3 rounded-full bg-white px-7 py-4 text-sm font-semibold text-black transition duration-300 hover:bg-cyan-300"
+            className="group mt-10 inline-flex items-center gap-3 rounded-full bg-white px-7 py-4 text-sm font-semibold text-black transition hover:bg-cyan-300"
           >
             Quero transformar meu negócio
-            <span>→</span>
+
+            <span className="transition-transform group-hover:translate-x-1">
+              →
+            </span>
           </a>
         </div>
       </section>
 
-      {/* ========================= DIAGNÓSTICO ========================= */}
+      {/* ===================================================== */}
+      {/* DIAGNÓSTICO */}
+      {/* ===================================================== */}
 
       <LeadForm />
 
-      {/* ========================= FOOTER ========================= */}
+      {/* ===================================================== */}
+      {/* FOOTER */}
+      {/* ===================================================== */}
 
       <footer className="border-t border-white/[0.06] bg-[#08090d] px-6 py-8 lg:px-8">
         <div className="mx-auto flex max-w-7xl flex-col justify-between gap-5 sm:flex-row sm:items-center">
