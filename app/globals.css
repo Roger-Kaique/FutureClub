@@ -1987,3 +1987,195 @@ button {
     animation: none;
   }
 }
+/* =========================================================
+   PARALLAX IMAGES
+========================================================= */
+
+.parallax-image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.parallax-image {
+  position: absolute;
+  left: 0;
+  top: -10%;
+  width: 100%;
+  height: 120%;
+  object-fit: cover;
+  object-position: center;
+  will-change: transform;
+  transition: transform 120ms linear;
+}
+
+.parallax-image-container::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(5, 7, 10, 0.08),
+      transparent 35%,
+      rgba(5, 7, 10, 0.28)
+    );
+}
+
+/* =========================================================
+   REVEAL DAS IMAGENS
+========================================================= */
+
+.parallax-image-container {
+  animation: parallaxImageReveal 900ms ease-out both;
+}
+
+@keyframes parallaxImageReveal {
+  from {
+    opacity: 0;
+    transform: scale(1.04);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* =========================================================
+   ACESSIBILIDADE
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .parallax-image {
+    transform: scale(1.05) !important;
+    transition: none;
+  }
+
+  .parallax-image-container {
+    animation: none;
+  }
+}
+/* =========================================================
+   PARALLAX — EQUIPE
+========================================================= */
+
+#equipe .parallax-image-container {
+  position: absolute;
+  inset: 0;
+}
+
+#equipe .parallax-image-container::after {
+  background:
+    linear-gradient(
+      to top,
+      rgba(5, 7, 10, 0.9),
+      rgba(5, 7, 10, 0.12) 65%,
+      rgba(5, 7, 10, 0.05)
+    );
+}
+
+#equipe .parallax-image {
+  filter: grayscale(15%);
+  transition:
+    transform 120ms linear,
+    filter 600ms ease;
+}
+
+#equipe article:hover .parallax-image {
+  filter: grayscale(0%);
+}
+/* =========================================================
+   CASES — FOTOS
+========================================================= */
+
+.case-showcase-photo {
+  position: absolute;
+  inset: -5%;
+  width: 110%;
+  height: 110%;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(0.85);
+  transform: scale(1.02);
+  transition:
+    transform 900ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 700ms ease;
+}
+
+.case-showcase-card:hover .case-showcase-photo {
+  transform: scale(1.09);
+  filter: saturate(1);
+}
+
+.case-showcase-image-overlay {
+  z-index: 1;
+}
+
+.case-showcase-grid {
+  z-index: 2;
+}
+
+.case-showcase-top,
+.case-showcase-image-center,
+.case-showcase-image-bottom {
+  z-index: 3;
+}
+
+.case-showcase-image-center {
+  transition:
+    transform 700ms cubic-bezier(0.22, 1, 0.36, 1),
+    background 500ms ease,
+    border-color 500ms ease;
+}
+
+.case-showcase-card:hover .case-showcase-image-center {
+  transform: translate(-50%, -50%) scale(1.08);
+  border-color: rgba(103, 232, 249, 0.3);
+  background: rgba(5, 8, 11, 0.42);
+}
+
+.case-showcase-content {
+  position: relative;
+  z-index: 4;
+}
+
+.case-showcase-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 28px;
+}
+
+.case-showcase-tags span {
+  padding: 7px 11px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.025);
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 10px;
+}
+
+.case-showcase-link {
+  margin-top: 34px;
+}
+
+@media (max-width: 900px) {
+  .case-showcase-photo {
+    inset: -6%;
+    width: 112%;
+    height: 112%;
+  }
+}
+
+@media (max-width: 600px) {
+  .case-showcase-tags {
+    margin-top: 22px;
+  }
+
+  .case-showcase-link {
+    margin-top: 26px;
+  }
+}

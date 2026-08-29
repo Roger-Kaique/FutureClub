@@ -1,29 +1,33 @@
-"use client";
-
 const showcaseCases = [
   {
     number: "01",
     category: "Social Media",
-    title: "Presença que deixa de ser postagem e passa a ser posicionamento.",
+    title:
+      "Presença que deixa de ser postagem e passa a ser posicionamento.",
     description:
       "Estratégia de conteúdo, identidade e relacionamento para transformar uma presença digital em uma extensão real da marca.",
-    image: "/images/case-01.jpg",
+    image: "/images/gallery01.jpg",
+    tags: ["Conteúdo", "Marca", "Instagram"],
   },
   {
     number: "02",
     category: "Estratégia",
-    title: "Uma direção clara para o próximo estágio do negócio.",
+    title:
+      "Uma direção clara para o próximo estágio do negócio.",
     description:
       "Diagnóstico, planejamento e execução conectados aos objetivos da empresa.",
-    image: "/images/case-02.jpg",
+    image: "/images/gallery02.jpg",
+    tags: ["Planejamento", "Posicionamento", "Crescimento"],
   },
   {
     number: "03",
     category: "Dados + Automação",
-    title: "Mais informação. Menos trabalho manual.",
+    title:
+      "Mais informação. Menos trabalho manual.",
     description:
-      "Processos, automações e análise para transformar operação em uma estrutura mais inteligente.",
-    image: "/images/case-03.jpg",
+      "Processos, automações e análise para transformar a operação em uma estrutura mais inteligente.",
+    image: "/images/gallery03.jpg",
+    tags: ["Dados", "Automação", "Processos"],
   },
 ];
 
@@ -34,7 +38,9 @@ export default function CaseShowcase() {
       className="case-showcase"
     >
       <div className="case-showcase-intro">
-        <p>07 — Projetos em movimento</p>
+        <p className="case-showcase-eyebrow">
+          07 — Projetos em movimento
+        </p>
 
         <h2>
           Estratégia ganha força
@@ -54,12 +60,13 @@ export default function CaseShowcase() {
             key={item.number}
             className="case-showcase-card"
           >
-            <div
-              className="case-showcase-image"
-              style={{
-                backgroundImage: `url("${item.image}")`,
-              }}
-            >
+            <div className="case-showcase-image">
+              <img
+                src={item.image}
+                alt={`${item.category} — ${item.title}`}
+                className="case-showcase-photo"
+              />
+
               <div className="case-showcase-image-overlay" />
 
               <div className="case-showcase-grid" />
@@ -87,6 +94,14 @@ export default function CaseShowcase() {
               <h3>{item.title}</h3>
 
               <p>{item.description}</p>
+
+              <div className="case-showcase-tags">
+                {item.tags.map((tag) => (
+                  <span key={tag}>
+                    {tag}
+                  </span>
+                ))}
+              </div>
 
               <div className="case-showcase-link">
                 <span>Ver projeto</span>

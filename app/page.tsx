@@ -1,9 +1,11 @@
 import LeadForm from "../components/LeadForm";
 import Navbar from "../components/Navbar";
-import CaseShowcase from "../components/CaseShowcase";
-import DiagnosisSection from "../components/DiagnosisSection";
+import MovingGallery from "../components/MovingGallery";
+import TeamSection from "../components/TeamSection";
 import OperationsSection from "../components/OperationsSection";
+import DiagnosisSection from "../components/DiagnosisSection";
 import TransitionBand from "../components/TransitionBand";
+import CaseShowcase from "../components/CaseShowcase";
 
 const services = [
   {
@@ -60,6 +62,33 @@ const process = [
   ["05", "Otimizar", "Melhoramos continuamente o que fazemos."],
 ];
 
+const differences = [
+  {
+    number: "01",
+    title: "Visão de negócio",
+    description:
+      "Antes de pensar em conteúdo, entendemos objetivos, contexto, público e o momento da empresa.",
+  },
+  {
+    number: "02",
+    title: "Execução próxima",
+    description:
+      "Não entregamos apenas planejamento. Participamos da execução e acompanhamos o que acontece.",
+  },
+  {
+    number: "03",
+    title: "Tecnologia aplicada",
+    description:
+      "Usamos automação, sistemas e processos para tornar a operação mais eficiente.",
+  },
+  {
+    number: "04",
+    title: "Decisões por dados",
+    description:
+      "Acompanhamos métricas para aprender, ajustar estratégias e identificar novas oportunidades.",
+  },
+];
+
 const cases = [
   {
     number: "01",
@@ -89,157 +118,14 @@ const cases = [
   },
 ];
 
-const differences = [
-  {
-    number: "01",
-    title: "Visão de negócio",
-    description:
-      "Antes de pensar em conteúdo, entendemos objetivos, contexto, público e o momento da empresa.",
-  },
-  {
-    number: "02",
-    title: "Execução próxima",
-    description:
-      "Não entregamos apenas planejamento. Participamos da execução e acompanhamos o que acontece.",
-  },
-  {
-    number: "03",
-    title: "Tecnologia aplicada",
-    description:
-      "Usamos automação, sistemas e processos para tornar a operação mais eficiente.",
-  },
-  {
-    number: "04",
-    title: "Decisões por dados",
-    description:
-      "Acompanhamos métricas para aprender, ajustar estratégias e identificar novas oportunidades.",
-  },
-];
-
-const gallery = [
-  {
-    title: "Estratégia",
-    subtitle: "Pensar antes de executar",
-    image: "/images/gallery-01.jpg",
-    position: "center",
-  },
-  {
-    title: "Conteúdo",
-    subtitle: "Marcas que sabem se comunicar",
-    image: "/images/gallery-02.jpg",
-    position: "center",
-  },
-  {
-    title: "Dados",
-    subtitle: "Decisões baseadas em informação",
-    image: "/images/gallery-03.jpg",
-    position: "center",
-  },
-  {
-    title: "Comunidade",
-    subtitle: "Conexões que permanecem",
-    image: "/images/gallery-04.jpg",
-    position: "center",
-  },
-  {
-    title: "Tecnologia",
-    subtitle: "Estrutura para crescer",
-    image: "/images/gallery-05.jpg",
-    position: "center",
-  },
-  {
-    title: "Crescimento",
-    subtitle: "Resultado é consequência",
-    image: "/images/gallery-06.jpg",
-    position: "center",
-  },
-];
-
-function GalleryCard({
-  item,
-}: {
-  item: {
-    title: string;
-    subtitle: string;
-    image: string;
-    position: string;
-  };
-}) {
-  return (
-    <article
-      className="gallery-photo-card"
-      style={{
-        backgroundImage: `url("${item.image}")`,
-        backgroundPosition: item.position,
-      }}
-    >
-      <div className="gallery-photo-overlay" />
-
-      <div className="gallery-photo-grid" />
-
-      <div className="gallery-photo-number">FC</div>
-
-      <div className="gallery-photo-content">
-        <span>Future Club</span>
-
-        <h3>{item.title}</h3>
-
-        <p>{item.subtitle}</p>
-      </div>
-
-      <div className="gallery-photo-arrow">↗</div>
-    </article>
-  );
-}
-
-function MovingGallery() {
-  const rowOne = [...gallery, ...gallery];
-  const rowTwo = [...gallery, ...gallery];
-
-  return (
-    <section id="galeria" className="moving-gallery-section">
-      <div className="moving-gallery-heading">
-        <p>Estratégia em movimento</p>
-
-        <h2>
-          Diferentes partes de um negócio.
-          <span>Uma visão integrada.</span>
-        </h2>
-      </div>
-
-      <div className="moving-gallery-row">
-        <div className="moving-track moving-left">
-          {rowOne.map((item, index) => (
-            <GalleryCard
-              key={`row-one-${item.title}-${index}`}
-              item={item}
-            />
-          ))}
-        </div>
-      </div>
-
-      <div className="moving-gallery-row moving-gallery-row-second">
-        <div className="moving-track moving-right">
-          {rowTwo.map((item, index) => (
-            <GalleryCard
-              key={`row-two-${item.title}-${index}`}
-              item={item}
-            />
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 export default function Home() {
   return (
     <main className="min-h-screen overflow-hidden bg-[#08090d] text-white">
       <Navbar />
 
-      {/* ===================================================== */}
+      {/* ========================================================= */}
       {/* HERO */}
-      {/* ===================================================== */}
+      {/* ========================================================= */}
 
       <section className="relative flex min-h-screen items-center overflow-hidden pt-20">
         <div className="pointer-events-none absolute left-[45%] top-1/2 h-[700px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyan-400/[0.055] blur-[150px]" />
@@ -291,8 +177,8 @@ export default function Home() {
 
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
               <a
-                href="#diagnostico"
-                className="group inline-flex items-center justify-center gap-4 rounded-full bg-white px-7 py-4 text-sm font-semibold text-black shadow-[0_0_40px_rgba(255,255,255,0.06)] transition duration-300 hover:bg-cyan-300 hover:shadow-[0_0_45px_rgba(34,211,238,0.12)]"
+                href="#diagnostico-preview"
+                className="group inline-flex items-center justify-center gap-4 rounded-full bg-white px-7 py-4 text-sm font-semibold text-black shadow-[0_0_40px_rgba(255,255,255,0.06)] transition duration-300 hover:bg-cyan-300"
               >
                 Quero transformar meu negócio
 
@@ -312,6 +198,38 @@ export default function Home() {
                 </span>
               </a>
             </div>
+
+            <div className="mt-12 grid max-w-2xl grid-cols-2 border-t border-white/[0.08] sm:grid-cols-3">
+              <div className="border-r border-white/[0.08] py-6 pr-4">
+                <p className="text-[10px] uppercase tracking-[0.18em] text-white/25">
+                  Foco
+                </p>
+
+                <p className="mt-2 text-sm text-white/75">
+                  Pequenos negócios
+                </p>
+              </div>
+
+              <div className="border-r-0 py-6 px-4 sm:border-r sm:border-white/[0.08]">
+                <p className="text-[10px] uppercase tracking-[0.18em] text-white/25">
+                  Atuação
+                </p>
+
+                <p className="mt-2 text-sm text-white/75">
+                  Digital + Tecnologia
+                </p>
+              </div>
+
+              <div className="col-span-2 py-6 pl-0 sm:col-span-1 sm:pl-4">
+                <p className="text-[10px] uppercase tracking-[0.18em] text-white/25">
+                  Visão
+                </p>
+
+                <p className="mt-2 text-sm text-white/75">
+                  Crescimento sustentável
+                </p>
+              </div>
+            </div>
           </div>
 
           <div className="relative mx-auto hidden w-full max-w-xl animate-fade-in lg:block">
@@ -324,7 +242,7 @@ export default function Home() {
 
               <div className="absolute left-1/2 top-1/2 flex h-52 w-52 -translate-x-1/2 -translate-y-1/2 animate-float items-center justify-center rounded-full border border-white/10 bg-[#0d1016]/80 shadow-[0_0_100px_rgba(34,211,238,0.09)] backdrop-blur-xl">
                 <div className="text-center">
-                  <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full border border-cyan-400/25 bg-cyan-400/[0.08] shadow-[0_0_30px_rgba(34,211,238,0.08)]">
+                  <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full border border-cyan-400/25 bg-cyan-400/[0.08]">
                     <span className="text-xl font-semibold text-cyan-300">
                       F
                     </span>
@@ -389,11 +307,8 @@ export default function Home() {
               </div>
 
               <div className="absolute left-[27%] top-[21%] h-2 w-2 animate-pulse-dot rounded-full bg-cyan-300" />
-
               <div className="absolute right-[23%] top-[31%] h-2 w-2 animate-pulse-dot rounded-full bg-cyan-300" />
-
               <div className="absolute bottom-[27%] left-[20%] h-2 w-2 animate-pulse-dot rounded-full bg-cyan-300" />
-
               <div className="absolute bottom-[19%] right-[34%] h-1.5 w-1.5 animate-pulse-dot rounded-full bg-cyan-300" />
 
               <div className="absolute left-[29%] top-[23%] h-px w-[20%] rotate-[28deg] bg-gradient-to-r from-cyan-300/30 to-transparent" />
@@ -406,9 +321,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===================================================== */}
+      {/* ========================================================= */}
       {/* SOBRE */}
-      {/* ===================================================== */}
+      {/* ========================================================= */}
 
       <section
         id="sobre"
@@ -452,7 +367,7 @@ export default function Home() {
             </div>
 
             <div className="mt-12 grid gap-4 sm:grid-cols-2">
-              <div className="rounded-3xl border border-white/[0.08] bg-white/[0.025] p-6 transition duration-300 hover:border-cyan-400/20 hover:bg-cyan-400/[0.03]">
+              <div className="rounded-3xl border border-white/[0.08] bg-white/[0.025] p-6 transition hover:border-cyan-400/20">
                 <p className="text-xs uppercase tracking-[0.2em] text-cyan-300/60">
                   Comunicação
                 </p>
@@ -467,7 +382,7 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="rounded-3xl border border-white/[0.08] bg-white/[0.025] p-6 transition duration-300 hover:border-cyan-400/20 hover:bg-cyan-400/[0.03]">
+              <div className="rounded-3xl border border-white/[0.08] bg-white/[0.025] p-6 transition hover:border-cyan-400/20">
                 <p className="text-xs uppercase tracking-[0.2em] text-cyan-300/60">
                   Tecnologia
                 </p>
@@ -486,18 +401,27 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===================================================== */}
+      {/* ========================================================= */}
       {/* GALERIA */}
-      {/* ===================================================== */}
-<OperationsSection />
+      {/* ========================================================= */}
 
-<DiagnosisSection />
       <MovingGallery />
+
+      {/* ========================================================= */}
+      {/* TRANSIÇÃO */}
+      {/* ========================================================= */}
+
       <TransitionBand />
 
-      {/* ===================================================== */}
+      {/* ========================================================= */}
+      {/* ÁREAS DE OPERAÇÃO */}
+      {/* ========================================================= */}
+
+      <OperationsSection />
+
+      {/* ========================================================= */}
       {/* VISÃO */}
-      {/* ===================================================== */}
+      {/* ========================================================= */}
 
       <section
         id="visao"
@@ -543,16 +467,18 @@ export default function Home() {
 
                 <h3 className="mt-4 text-xl font-medium">{title}</h3>
 
-                <p className="mt-3 text-sm leading-6 text-white/45">{text}</p>
+                <p className="mt-3 text-sm leading-6 text-white/45">
+                  {text}
+                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ===================================================== */}
+      {/* ========================================================= */}
       {/* PROBLEMA */}
-      {/* ===================================================== */}
+      {/* ========================================================= */}
 
       <section
         id="problema"
@@ -593,9 +519,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===================================================== */}
+      {/* ========================================================= */}
       {/* DIFERENCIAIS */}
-      {/* ===================================================== */}
+      {/* ========================================================= */}
 
       <section
         id="diferenciais"
@@ -636,7 +562,9 @@ export default function Home() {
                     </span>
                   </div>
 
-                  <h3 className="mt-12 text-xl font-medium">{item.title}</h3>
+                  <h3 className="mt-12 text-xl font-medium">
+                    {item.title}
+                  </h3>
 
                   <p className="mt-3 text-sm leading-6 text-white/40">
                     {item.description}
@@ -706,9 +634,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===================================================== */}
+      {/* ========================================================= */}
       {/* SERVIÇOS */}
-      {/* ===================================================== */}
+      {/* ========================================================= */}
 
       <section
         id="servicos"
@@ -768,9 +696,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===================================================== */}
+      {/* ========================================================= */}
       {/* PROCESSO */}
-      {/* ===================================================== */}
+      {/* ========================================================= */}
 
       <section
         id="processo"
@@ -804,9 +732,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===================================================== */}
+      {/* ========================================================= */}
       {/* PORTFÓLIO */}
-      {/* ===================================================== */}
+      {/* ========================================================= */}
 
       <section
         id="cases"
@@ -884,7 +812,7 @@ export default function Home() {
                         </h3>
                       </div>
 
-                      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-white/45 transition duration-300 group-hover:border-cyan-400/30 group-hover:bg-cyan-400/10 group-hover:text-cyan-300">
+                      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-white/45 transition group-hover:border-cyan-400/30 group-hover:text-cyan-300">
                         ↗
                       </div>
                     </div>
@@ -932,167 +860,28 @@ export default function Home() {
           </div>
         </div>
       </section>
-<CaseShowcase />
-      {/* ===================================================== */}
+
+      {/* ========================================================= */}
+      {/* SHOWCASE CINEMATOGRÁFICO */}
+      {/* ========================================================= */}
+
+      <CaseShowcase />
+
+      {/* ========================================================= */}
       {/* EQUIPE */}
-      {/* ===================================================== */}
+      {/* ========================================================= */}
 
-      <section
-        id="equipe"
-        className="border-t border-white/[0.06] bg-[#08090d] px-6 py-32 lg:px-8"
-      >
-        <div className="mx-auto max-w-7xl">
-          <div className="max-w-3xl">
-            <p className="text-xs font-medium uppercase tracking-[0.25em] text-cyan-300/70">
-              08 — Quem está por trás
-            </p>
+      <TeamSection />
 
-            <h2 className="mt-6 text-4xl font-semibold tracking-[-0.045em] sm:text-5xl lg:text-6xl">
-              Duas perspectivas.
-              <span className="block text-white/30">Um objetivo.</span>
-            </h2>
+      {/* ========================================================= */}
+      {/* TRANSIÇÃO */}
+      {/* ========================================================= */}
 
-            <p className="mt-6 max-w-2xl text-base leading-7 text-white/45 sm:text-lg">
-              A Future Club é construída por duas áreas diferentes que
-              trabalham em conjunto para cuidar do negócio de forma mais
-              completa.
-            </p>
-          </div>
+      <TransitionBand />
 
-          <div className="mt-16 grid gap-6 lg:grid-cols-2">
-            <article className="group overflow-hidden rounded-[2rem] border border-white/[0.08] bg-[#0d1016] transition duration-500 hover:border-cyan-400/20">
-              <div className="relative aspect-[16/11] overflow-hidden bg-gradient-to-br from-[#151923] to-[#0b0d12]">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(34,211,238,0.12),transparent_48%)]" />
-
-                <div className="absolute left-1/2 top-1/2 flex h-32 w-32 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-cyan-400/20 bg-cyan-400/[0.06] shadow-[0_0_80px_rgba(34,211,238,0.08)]">
-                  <span className="text-4xl font-semibold text-cyan-300">
-                    FC
-                  </span>
-                </div>
-
-                <div className="absolute bottom-6 left-6 rounded-full border border-white/10 bg-black/20 px-3 py-1.5 text-[11px] text-white/45 backdrop-blur-md">
-                  Tecnologia + Dados
-                </div>
-              </div>
-
-              <div className="p-8">
-                <p className="text-xs uppercase tracking-[0.2em] text-cyan-300/60">
-                  Fundador
-                </p>
-
-                <h3 className="mt-3 text-3xl font-medium">
-                  Tecnologia, sistemas e inteligência
-                </h3>
-
-                <p className="mt-4 text-sm leading-6 text-white/45">
-                  Responsável pela estrutura tecnológica da Future Club, com
-                  foco em sistemas, automação, dados, análise e processos.
-                </p>
-
-                <div className="mt-7 flex flex-wrap gap-2">
-                  {["Tecnologia", "Dados", "Automação", "Sistemas"].map(
-                    (item) => (
-                      <span
-                        key={item}
-                        className="rounded-full border border-white/[0.08] px-3 py-1.5 text-[11px] text-white/45"
-                      >
-                        {item}
-                      </span>
-                    ),
-                  )}
-                </div>
-              </div>
-            </article>
-
-            <article className="group overflow-hidden rounded-[2rem] border border-white/[0.08] bg-[#0d1016] transition duration-500 hover:border-cyan-400/20">
-              <div className="relative aspect-[16/11] overflow-hidden bg-gradient-to-br from-[#151923] to-[#0b0d12]">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(34,211,238,0.08),transparent_48%)]" />
-
-                <div className="absolute left-1/2 top-1/2 flex h-32 w-32 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-white/15 bg-white/[0.04]">
-                  <span className="text-4xl font-semibold text-white/75">
-                    FC
-                  </span>
-                </div>
-
-                <div className="absolute bottom-6 left-6 rounded-full border border-white/10 bg-black/20 px-3 py-1.5 text-[11px] text-white/45 backdrop-blur-md">
-                  Conteúdo + Comunidade
-                </div>
-              </div>
-
-              <div className="p-8">
-                <p className="text-xs uppercase tracking-[0.2em] text-cyan-300/60">
-                  Fundadora
-                </p>
-
-                <h3 className="mt-3 text-3xl font-medium">
-                  Conteúdo, posicionamento e comunidade
-                </h3>
-
-                <p className="mt-4 text-sm leading-6 text-white/45">
-                  Responsável pela comunicação, conteúdo, posicionamento de
-                  marca, gestão de perfis e construção de relacionamento com a
-                  audiência.
-                </p>
-
-                <div className="mt-7 flex flex-wrap gap-2">
-                  {["Conteúdo", "Instagram", "Marca", "Comunidade"].map(
-                    (item) => (
-                      <span
-                        key={item}
-                        className="rounded-full border border-white/[0.08] px-3 py-1.5 text-[11px] text-white/45"
-                      >
-                        {item}
-                      </span>
-                    ),
-                  )}
-                </div>
-              </div>
-            </article>
-          </div>
-
-          <div className="mt-8 rounded-[2rem] border border-white/[0.08] bg-white/[0.025] p-8 text-center md:p-12">
-            <p className="text-2xl font-medium tracking-[-0.025em] sm:text-3xl">
-              Comunicação cria conexão.
-              <span className="text-white/30">
-                {" "}
-                Tecnologia cria estrutura.
-              </span>
-            </p>
-
-            <p className="mx-auto mt-5 max-w-2xl text-sm leading-6 text-white/40">
-              Quando as duas trabalham juntas, estratégia deixa de ser apenas
-              uma ideia e passa a fazer parte da operação.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ===================================================== */}
-      {/* FUTURE CLUB */}
-      {/* ===================================================== */}
-
-      <section className="border-t border-white/[0.06] bg-[#0a0c11] px-6 py-32 lg:px-8">
-        <div className="mx-auto max-w-7xl">
-          <div className="rounded-[2rem] border border-white/[0.08] bg-white/[0.025] p-8 text-center lg:p-16">
-            <p className="text-xs uppercase tracking-[0.25em] text-cyan-300/60">
-              O que vem depois
-            </p>
-
-            <h2 className="mx-auto mt-6 max-w-4xl text-4xl font-semibold tracking-[-0.045em] sm:text-5xl lg:text-6xl">
-              A Future Club está só começando.
-            </h2>
-
-            <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-white/40 sm:text-lg">
-              Estamos construindo novas formas de conectar estratégia,
-              tecnologia, dados e operação.
-            </p>
-          </div>
-        </div>
-      </section>
-<TransitionBand />
-      {/* ===================================================== */}
+      {/* ========================================================= */}
       {/* CTA */}
-      {/* ===================================================== */}
+      {/* ========================================================= */}
 
       <section
         id="contato"
@@ -1102,7 +891,7 @@ export default function Home() {
 
         <div className="relative mx-auto max-w-5xl text-center">
           <p className="text-xs font-medium uppercase tracking-[0.25em] text-cyan-300/70">
-            10 — Próximo passo
+            09 — Próximo passo
           </p>
 
           <h2 className="mt-6 text-5xl font-semibold leading-[0.95] tracking-[-0.05em] sm:text-6xl lg:text-8xl">
@@ -1115,7 +904,7 @@ export default function Home() {
           </p>
 
           <a
-            href="#diagnostico"
+            href="#diagnostico-preview"
             className="group mt-10 inline-flex items-center gap-3 rounded-full bg-white px-7 py-4 text-sm font-semibold text-black transition hover:bg-cyan-300"
           >
             Quero transformar meu negócio
@@ -1127,15 +916,21 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===================================================== */}
-      {/* DIAGNÓSTICO */}
-      {/* ===================================================== */}
+      {/* ========================================================= */}
+      {/* DIAGNÓSTICO INTERATIVO */}
+      {/* ========================================================= */}
+
+      <DiagnosisSection />
+
+      {/* ========================================================= */}
+      {/* FORMULÁRIO COMPLETO */}
+      {/* ========================================================= */}
 
       <LeadForm />
 
-      {/* ===================================================== */}
+      {/* ========================================================= */}
       {/* FOOTER */}
-      {/* ===================================================== */}
+      {/* ========================================================= */}
 
       <footer className="border-t border-white/[0.06] bg-[#08090d] px-6 py-8 lg:px-8">
         <div className="mx-auto flex max-w-7xl flex-col justify-between gap-5 sm:flex-row sm:items-center">
