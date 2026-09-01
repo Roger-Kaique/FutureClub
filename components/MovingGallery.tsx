@@ -31,86 +31,105 @@ const gallery = [
     subtitle: "Resultado é consequência",
     image: "/images/gallery06.jpg",
   },
+
+  // NOVAS FOTOS
+  {
+    title: "Visão",
+    subtitle: "Enxergar além do agora",
+    image: "/images/photo1.jpg",
+  },
+  {
+    title: "Posicionamento",
+    subtitle: "Ser lembrado pelo que importa",
+    image: "/images/photo2.jpg",
+  },
+  {
+    title: "Conexão",
+    subtitle: "Marcas que criam relações",
+    image: "/images/photo3.jpg",
+  },
+  {
+    title: "Movimento",
+    subtitle: "Ideias que saem do papel",
+    image: "/images/photo4.jpg",
+  },
+  {
+    title: "Futuro",
+    subtitle: "Preparar hoje o próximo passo",
+    image: "/images/photo5.jpg",
+  },
 ];
 
 function GalleryCard({
   item,
+  number,
 }: {
-  item: {
-    title: string;
-    subtitle: string;
-    image: string;
-  };
+  item: (typeof gallery)[number];
+  number: string;
 }) {
   return (
     <article
       className="gallery-photo-card"
       style={{
-        backgroundImage: `url("${item.image}")`,
+        backgroundImage: `url(${item.image})`,
       }}
     >
       <div className="gallery-photo-overlay" />
 
-      <div className="gallery-photo-grid" />
-
-      <div className="gallery-photo-number">
-        FC
-      </div>
-
       <div className="gallery-photo-content">
-        <span>Future Club</span>
+        <span className="gallery-photo-number">{number}</span>
 
-        <h3>{item.title}</h3>
+        <div>
+          <p>{item.subtitle}</p>
+          <h3>{item.title}</h3>
+        </div>
 
-        <p>{item.subtitle}</p>
-      </div>
-
-      <div className="gallery-photo-arrow">
-        ↗
+        <span className="gallery-photo-arrow">↗</span>
       </div>
     </article>
   );
 }
 
 export default function MovingGallery() {
-  const rowOne = [...gallery, ...gallery];
-  const rowTwo = [...gallery, ...gallery];
+  const firstRow = gallery.slice(0, 6);
+  const secondRow = gallery.slice(6);
 
   return (
-    <section
-      id="galeria"
-      className="moving-gallery-section"
-    >
+    <section id="galeria" className="moving-gallery-section">
       <div className="moving-gallery-heading">
-        <p>
-          Estratégia em movimento
-        </p>
+        <span>01 / VISUAL</span>
 
         <h2>
-          Diferentes partes de um negócio.
-          <span>
-            Uma visão integrada.
-          </span>
+          Ideias em
+          <br />
+          movimento.
         </h2>
+
+        <p>
+          Estratégia, criatividade e tecnologia criando novas possibilidades
+          para marcas que querem crescer.
+        </p>
       </div>
 
       <div className="moving-gallery-row">
         <div className="moving-track moving-left">
-          {rowOne.map((item, index) => (
+          {[...firstRow, ...firstRow].map((item, index) => (
             <GalleryCard
-              key={`row-one-${item.title}-${index}`}
+              key={`row1-${index}`}
               item={item}
+              number={String((index % firstRow.length) + 1).padStart(2, "0")}
             />
           ))}
         </div>
       </div>
 
-      <div className="moving-gallery-row moving-gallery-row-second">
+      <div className="moving-gallery-row">
         <div className="moving-track moving-right">
-          {rowTwo.map((item, index) => (
+          {[...secondRow, ...secondRow, ...secondRow].map((item, index) => (
             <GalleryCard
-              key={`row-two-${item.title}-${index}`}
+              key={`row2-${index}`}
               item={item}
+              number={String((index % secondRow.length) + 7).padStart(2, "0")}
             />
           ))}
         </div>

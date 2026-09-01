@@ -50,7 +50,7 @@ export default function TransitionBand() {
       <BandRow reverse />
 
       <div className="transition-band-center">
-        <span>FUTURE CLUB</span>
+        <span>Trama Branding</span>
 
         <div className="transition-band-center-line" />
 

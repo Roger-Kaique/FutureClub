@@ -184,7 +184,7 @@ export default function OperationsSection() {
               </span>
 
               <span>
-                FUTURE CLUB
+                TRAMA BRANDUNG
               </span>
             </div>
 

@@ -61,7 +61,7 @@ export default function Navbar() {
             href="#"
             onClick={closeMenu}
             className="group flex items-center gap-3"
-            aria-label="Future Club - início"
+            aria-label="Trama Branding- início"
           >
             <div
               className={`flex items-center justify-center rounded-full border transition-all duration-500 ${
@@ -78,7 +78,7 @@ export default function Navbar() {
                 scrolled ? "text-base" : "text-lg"
               }`}
             >
-              future<span className="text-cyan-400">club</span>
+              Trama<span className="text-cyan-400">Branding</span>
             </span>
           </a>
 
@@ -101,7 +101,7 @@ export default function Navbar() {
           {/* CTA DESKTOP */}
 
           <a
-            href="#diagnostico"
+           href="https://wa.me/5531989340928"
             className="group hidden items-center gap-3 rounded-full border border-white/10 bg-white/[0.05] px-5 py-2.5 text-sm font-medium text-white/80 transition-all duration-300 hover:border-cyan-400/30 hover:bg-cyan-400/[0.08] hover:text-white lg:inline-flex"
           >
             <span>Vamos conversar</span>
@@ -195,7 +195,7 @@ export default function Navbar() {
             </div>
 
             <a
-              href="#diagnostico"
+              href="https://wa.me/5531989340928"
               onClick={closeMenu}
               className="mt-8 flex items-center justify-between rounded-2xl border border-cyan-400/20 bg-cyan-400/[0.07] px-5 py-4 transition hover:border-cyan-400/30 hover:bg-cyan-400/[0.1]"
             >
@@ -216,7 +216,7 @@ export default function Navbar() {
               <span className="h-2 w-2 animate-pulse-dot rounded-full bg-cyan-300" />
 
               <span className="text-xs text-white/30">
-                Future Club — crescimento com planejamento.
+             Trama Branding — crescimento com planejamento.
               </span>
             </div>
           </nav>

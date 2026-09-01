@@ -16,7 +16,7 @@ export default function TeamSection() {
             <div className="mt-8 h-px w-20 bg-cyan-400/40" />
 
             <p className="mt-8 max-w-sm text-sm leading-6 text-white/35">
-              A Future Club nasceu da união entre comunicação, tecnologia e
+              A Trama Branding  nasceu da união entre comunicação, tecnologia e
               uma vontade simples: cuidar de negócios de verdade.
             </p>
           </div>
@@ -57,7 +57,7 @@ export default function TeamSection() {
             <div className="relative aspect-[4/5] overflow-hidden bg-[#10141b]">
               <img
                 src="/images/roger-01.jpg"
-                alt="Roger — Future Club"
+                alt="Roger — Trama Branding"
                 className="h-full w-full object-cover object-center grayscale-[15%] transition duration-700 group-hover:scale-105 group-hover:grayscale-0"
               />
 
@@ -84,7 +84,7 @@ export default function TeamSection() {
               </h4>
 
               <p className="mt-4 text-sm leading-6 text-white/45">
-                Responsável pela estrutura tecnológica da Future Club, com
+                Responsável pela estrutura tecnológica da Trama Branding, com
                 foco em sistemas, automação, dados, análise e processos.
               </p>
 
@@ -112,7 +112,7 @@ export default function TeamSection() {
             <div className="relative aspect-[4/5] overflow-hidden bg-[#10141b]">
               <img
                 src="/images/julia-01.jpg"
-                alt="Julia — Future Club"
+                alt="Julia — Trama Branding"
                 className="h-full w-full object-cover object-center grayscale-[15%] transition duration-700 group-hover:scale-105 group-hover:grayscale-0"
               />
 

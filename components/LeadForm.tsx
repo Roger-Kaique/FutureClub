@@ -123,6 +123,11 @@ export default function LeadForm() {
       return false;
     }
 
+    if (currentStep === 5 && !form.budget) {
+      alert("Selecione uma faixa de investimento.");
+      return false;
+    }
+
     return true;
   }
 
@@ -147,7 +152,40 @@ export default function LeadForm() {
       return;
     }
 
+    const message = [
+      "Olá, Trama Branding! Quero iniciar uma conversa.",
+      "",
+      "NOVO DIAGNÓSTICO",
+      "",
+      `Nome: ${form.name}`,
+      `Empresa: ${form.company}`,
+      `Segmento: ${form.segment}`,
+      `Instagram: ${form.instagram || "Não informado"}`,
+      `WhatsApp: ${form.phone}`,
+      "",
+      `Momento atual: ${form.situation}`,
+      `Desafios: ${
+        selectedChallenges.length > 0
+          ? selectedChallenges.join(", ")
+          : "Não informado"
+      }`,
+      `Interesses: ${
+        selectedInterests.length > 0
+          ? selectedInterests.join(", ")
+          : "Não informado"
+      }`,
+      "",
+      `Objetivo: ${form.objective}`,
+      `Investimento: ${form.budget}`,
+    ].join("\n");
+
+    const whatsappUrl = `https://wa.me/5531989340928?text=${encodeURIComponent(
+      message,
+    )}`;
+
     setSubmitted(true);
+
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
   }
 
   function restart() {
@@ -180,8 +218,9 @@ export default function LeadForm() {
           </h2>
 
           <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-white/45 sm:text-lg">
-            Agora já temos uma visão inicial sobre a sua empresa, seus desafios
-            e o que você busca para a próxima fase.
+            Suas informações foram organizadas e encaminhadas para o nosso
+            WhatsApp. Agora podemos continuar a conversa com mais contexto
+            sobre o seu negócio.
           </p>
 
           <div className="mx-auto mt-10 max-w-xl rounded-3xl border border-white/[0.08] bg-white/[0.025] p-6 text-left">
@@ -190,23 +229,23 @@ export default function LeadForm() {
             </p>
 
             <p className="mt-3 text-lg text-white/75">
-              Vamos continuar essa conversa pelo WhatsApp.
+              A conversa continuará pelo WhatsApp.
             </p>
 
             <p className="mt-2 text-sm leading-6 text-white/35">
-              Quando chegarmos lá, sua equipe já terá contexto suficiente para
-              iniciar uma conversa mais objetiva.
+              O diagnóstico já seguirá junto com sua mensagem para que a
+              conversa comece de forma mais objetiva.
             </p>
           </div>
 
           <div className="mt-10 flex flex-col justify-center gap-3 sm:flex-row">
             <a
-              href="https://wa.me/"
+              href="https://wa.me/5531989340928"
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center justify-center gap-3 rounded-full bg-white px-7 py-4 text-sm font-semibold text-black transition duration-300 hover:bg-cyan-300"
             >
-              Continuar no WhatsApp
+              Abrir WhatsApp
               <span>→</span>
             </a>
 
@@ -231,7 +270,6 @@ export default function LeadForm() {
       <div className="pointer-events-none absolute left-1/2 top-1/3 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-cyan-500/[0.05] blur-[130px]" />
 
       <div className="relative mx-auto max-w-5xl">
-        {/* CABEÇALHO */}
         <div className="max-w-3xl">
           <p className="text-xs font-medium uppercase tracking-[0.25em] text-cyan-300/70">
             10 — Diagnóstico
@@ -247,9 +285,7 @@ export default function LeadForm() {
           </p>
         </div>
 
-        {/* FORM CARD */}
         <div className="mt-14 rounded-[2rem] border border-white/[0.08] bg-[#0d1016] p-6 sm:p-8 lg:p-10">
-          {/* PROGRESSO */}
           <div>
             <div className="flex items-center justify-between gap-5">
               <div>
@@ -298,7 +334,6 @@ export default function LeadForm() {
           </div>
 
           <form onSubmit={handleSubmit} className="mt-12">
-            {/* ETAPA 1 */}
             {currentStep === 0 && (
               <StepContainer
                 label="01 — Sobre você"
@@ -344,7 +379,6 @@ export default function LeadForm() {
               </StepContainer>
             )}
 
-            {/* ETAPA 2 */}
             {currentStep === 1 && (
               <StepContainer
                 label="02 — Momento atual"
@@ -364,7 +398,6 @@ export default function LeadForm() {
               </StepContainer>
             )}
 
-            {/* ETAPA 3 */}
             {currentStep === 2 && (
               <StepContainer
                 label="03 — Desafios"
@@ -390,7 +423,6 @@ export default function LeadForm() {
               </StepContainer>
             )}
 
-            {/* ETAPA 4 */}
             {currentStep === 3 && (
               <StepContainer
                 label="04 — O que você procura"
@@ -416,7 +448,6 @@ export default function LeadForm() {
               </StepContainer>
             )}
 
-            {/* ETAPA 5 */}
             {currentStep === 4 && (
               <StepContainer
                 label="05 — Objetivo"
@@ -435,7 +466,6 @@ export default function LeadForm() {
               </StepContainer>
             )}
 
-            {/* ETAPA 6 */}
             {currentStep === 5 && (
               <StepContainer
                 label="06 — Investimento"
@@ -459,14 +489,14 @@ export default function LeadForm() {
                   </p>
 
                   <p className="mt-2 text-sm leading-6 text-white/45">
-                    Ao enviar, vamos considerar essas informações para
-                    preparar uma conversa mais objetiva com você.
+                    Ao enviar, suas respostas serão organizadas
+                    automaticamente em uma mensagem e encaminhadas para o
+                    WhatsApp da Trama Branding.
                   </p>
                 </div>
               </StepContainer>
             )}
 
-            {/* CONTROLES */}
             <div className="mt-12 flex flex-col-reverse gap-3 border-t border-white/[0.07] pt-8 sm:flex-row sm:items-center sm:justify-between">
               <button
                 type="button"

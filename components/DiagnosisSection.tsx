@@ -117,7 +117,7 @@ export default function DiagnosisSection() {
         <div className="diagnosis-layout">
           <div className="diagnosis-sidebar">
             <p className="diagnosis-sidebar-label">
-              Diagnóstico Future Club
+              Diagnóstico Trama Branding
             </p>
 
             <div className="diagnosis-sidebar-line" />
@@ -244,7 +244,7 @@ export default function DiagnosisSection() {
           </p>
 
           <span>
-            Future Club
+            Trama Branding
           </span>
         </div>
       </div>
