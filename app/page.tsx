@@ -5,7 +5,7 @@ import TeamSection from "../components/TeamSection";
 import OperationsSection from "../components/OperationsSection";
 
 import TransitionBand from "../components/TransitionBand";
-import CaseShowcase from "../components/CaseShowcase";
+
 
 const services = [
   {
@@ -147,70 +147,104 @@ export default function Home() {
       {/* HERO */}
       {/* ========================================================= */}
 
-<section className="relative flex min-h-screen items-center overflow-hidden bg-[#08090d] pt-20">
-  <div className="pointer-events-none absolute left-1/2 top-1/2 h-[750px] w-[750px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyan-400/[0.06] blur-[160px]" />
+<section className="relative flex min-h-screen items-center overflow-hidden bg-[#f5f3f0] pt-20 text-[#000000]">
+ <div className="hero-photo-stream" aria-hidden="true">
+  <div className="hero-photo-track hero-photo-track-one">
+    {[
+      "/images/gallery01.jpg",
+      "/images/photo1.jpg",
+      "/images/case1.jpg",
+      "/images/gallery04.jpg",
+      "/images/photo4.jpg",
+      "/images/case3.jpg",
+      "/images/gallery06.jpg",
+      "/images/photo2.jpg",
+    ].map((image, index) => (
+      <div className="hero-photo-card" key={`hero-one-${index}`}>
+        <img src={image} alt="" />
+      </div>
+    ))}
+  </div>
 
-  <div className="pointer-events-none absolute right-[-180px] top-[10%] h-[450px] w-[450px] rounded-full bg-blue-500/[0.045] blur-[140px]" />
+  <div className="hero-photo-track hero-photo-track-two">
+    {[
+      "/images/photo3.jpg",
+      "/images/gallery02.jpg",
+      "/images/case2.jpg",
+      "/images/gallery05.jpg",
+      "/images/photo5.jpg",
+      "/images/gallery03.jpg",
+      "/images/case1.jpg",
+      "/images/gallery01.jpg",
+    ].map((image, index) => (
+      <div className="hero-photo-card hero-photo-card-small" key={`hero-two-${index}`}>
+        <img src={image} alt="" />
+      </div>
+    ))}
+  </div>
 
-  <div className="pointer-events-none absolute bottom-[-180px] left-[-120px] h-[400px] w-[400px] rounded-full bg-cyan-500/[0.025] blur-[130px]" />
+  <div className="hero-photo-vignette" />
+</div>
+  <div className="pointer-events-none absolute left-1/2 top-1/2 h-[700px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#d4d0c8]/30 blur-[150px]" />
 
   <div
-    className="pointer-events-none absolute inset-0 opacity-[0.045]"
+    className="pointer-events-none absolute inset-0 opacity-[0.18]"
     style={{
       backgroundImage:
-        "linear-gradient(rgba(255,255,255,0.55) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.55) 1px, transparent 1px)",
+        "linear-gradient(#000000 1px, transparent 1px), linear-gradient(90deg, #000000 1px, transparent 1px)",
       backgroundSize: "90px 90px",
       maskImage:
-        "radial-gradient(circle at center, black 8%, transparent 72%)",
+        "radial-gradient(circle at center, black 5%, transparent 72%)",
       WebkitMaskImage:
-        "radial-gradient(circle at center, black 8%, transparent 72%)",
+        "radial-gradient(circle at center, black 5%, transparent 72%)",
     }}
   />
 
-  <div className="relative mx-auto grid w-full max-w-7xl items-center gap-20 px-6 py-20 lg:grid-cols-[1fr_0.9fr] lg:px-8 lg:py-24">
+  <div className="pointer-events-none absolute -right-20 top-20 h-[300px] w-[300px] rounded-full border border-[#4a4a4a]/10" />
+
+  <div className="pointer-events-none absolute bottom-[-120px] left-[-80px] h-[300px] w-[300px] rounded-full border border-[#4a4a4a]/10" />
+
+  <div className="relative mx-auto grid w-full max-w-7xl items-center gap-16 px-6 py-20 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:py-24">
 
     <div className="max-w-3xl animate-fade-up">
 
-      <div className="mb-8 inline-flex items-center gap-3 rounded-full border border-cyan-400/15 bg-cyan-400/[0.045] px-4 py-2.5 backdrop-blur-xl">
-        <span className="relative flex h-2 w-2">
-          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-300 opacity-50" />
-          <span className="relative inline-flex h-2 w-2 rounded-full bg-cyan-300" />
-        </span>
+      <div className="mb-8 inline-flex items-center gap-3 rounded-full border border-[#4a4a4a]/20 bg-white/40 px-4 py-2.5 backdrop-blur-xl">
+        <span className="h-2 w-2 rounded-full bg-[#4a4a4a]" />
 
-        <span className="text-[10px] font-medium uppercase tracking-[0.24em] text-cyan-200/70">
-          Estratégia • Tecnologia • Crescimento
+        <span className="text-[10px] font-medium uppercase tracking-[0.24em] text-[#4a4a4a]">
+          Estratégia • Branding • Crescimento
         </span>
       </div>
 
       <h1 className="max-w-5xl text-5xl font-semibold leading-[0.9] tracking-[-0.065em] sm:text-6xl md:text-7xl lg:text-[5.5rem] xl:text-[6.4rem]">
-        Seu negócio
-        <span className="block text-white/92">
-          pode crescer
+        Marcas fortes
+        <span className="block text-[#111111]">
+          não acontecem
         </span>
-        <span className="block text-white/25">
-          com direção.
+        <span className="block text-[#4a4a4a]/45">
+          por acaso.
         </span>
       </h1>
 
       <div className="mt-8 flex items-center gap-4">
-        <span className="h-px w-14 bg-cyan-300/70" />
+        <span className="h-px w-14 bg-[#4a4a4a]" />
 
-        <p className="text-lg font-medium tracking-[-0.02em] text-white/70 sm:text-xl">
-          Estratégia antes da execução.
+        <p className="text-lg font-medium tracking-[-0.02em] text-[#4a4a4a] sm:text-xl">
+          Acontecem com estratégia.
         </p>
       </div>
 
-      <p className="mt-8 max-w-2xl text-base leading-8 text-white/45 sm:text-lg">
-        A Trama Branding conecta estratégia, posicionamento, comunicação,
-        tecnologia, automação e dados para transformar negócios em operações
-        mais fortes, organizadas e preparadas para crescer.
+      <p className="mt-8 max-w-2xl text-base leading-8 text-[#4a4a4a] sm:text-lg">
+        A Trama Branding transforma estratégia em presença, conectando
+        posicionamento, identidade, comunicação e tecnologia para construir
+        marcas mais relevantes e preparadas para crescer.
       </p>
 
       <div className="mt-10 flex flex-col gap-4 sm:flex-row">
 
         <a
           href="#diagnostico"
-          className="group inline-flex items-center justify-center gap-4 rounded-full bg-white px-7 py-4 text-sm font-semibold text-black shadow-[0_0_45px_rgba(255,255,255,0.08)] transition duration-300 hover:bg-cyan-300 hover:shadow-[0_0_45px_rgba(34,211,238,0.18)]"
+          className="group inline-flex items-center justify-center gap-4 rounded-full bg-[#000000] px-7 py-4 text-sm font-semibold text-[#f5f3f0] shadow-[0_15px_40px_rgba(0,0,0,0.14)] transition duration-300 hover:bg-[#4a4a4a]"
         >
           Vamos conversar
 
@@ -221,9 +255,9 @@ export default function Home() {
 
         <a
           href="#sobre"
-          className="group inline-flex items-center justify-center gap-3 rounded-full border border-white/[0.1] bg-white/[0.025] px-7 py-4 text-sm font-medium text-white/65 backdrop-blur-xl transition duration-300 hover:border-cyan-400/25 hover:bg-cyan-400/[0.04] hover:text-white"
+          className="group inline-flex items-center justify-center gap-3 rounded-full border border-[#4a4a4a]/25 bg-white/30 px-7 py-4 text-sm font-medium text-[#111111] backdrop-blur-xl transition duration-300 hover:border-[#000000]/30 hover:bg-white/50"
         >
-          Conhecer a Trama Branding
+          Conhecer a Trama
 
           <span className="transition-transform duration-300 group-hover:translate-y-0.5">
             ↓
@@ -232,34 +266,34 @@ export default function Home() {
 
       </div>
 
-      <div className="mt-14 grid max-w-2xl grid-cols-3 border-t border-white/[0.08]">
+      <div className="mt-14 grid max-w-2xl grid-cols-3 border-t border-[#4a4a4a]/15">
 
-        <div className="border-r border-white/[0.08] py-6 pr-5">
-          <p className="text-[9px] uppercase tracking-[0.2em] text-white/25">
+        <div className="border-r border-[#4a4a4a]/15 py-6 pr-5">
+          <p className="text-[9px] uppercase tracking-[0.2em] text-[#4a4a4a]/60">
             Estratégia
           </p>
 
-          <p className="mt-2 text-sm text-white/75">
-            Clareza
+          <p className="mt-2 text-sm text-[#111111]">
+            Direção
           </p>
         </div>
 
-        <div className="border-r border-white/[0.08] px-5 py-6">
-          <p className="text-[9px] uppercase tracking-[0.2em] text-white/25">
-            Tecnologia
+        <div className="border-r border-[#4a4a4a]/15 px-5 py-6">
+          <p className="text-[9px] uppercase tracking-[0.2em] text-[#4a4a4a]/60">
+            Branding
           </p>
 
-          <p className="mt-2 text-sm text-white/75">
-            Eficiência
+          <p className="mt-2 text-sm text-[#111111]">
+            Identidade
           </p>
         </div>
 
         <div className="py-6 pl-5">
-          <p className="text-[9px] uppercase tracking-[0.2em] text-white/25">
+          <p className="text-[9px] uppercase tracking-[0.2em] text-[#4a4a4a]/60">
             Crescimento
           </p>
 
-          <p className="mt-2 text-sm text-white/75">
+          <p className="mt-2 text-sm text-[#111111]">
             Evolução
           </p>
         </div>
@@ -271,30 +305,30 @@ export default function Home() {
 
       <div className="relative aspect-square">
 
-        <div className="absolute inset-[4%] rounded-full border border-white/[0.07]" />
+        <div className="absolute inset-[4%] rounded-full border border-[#4a4a4a]/15" />
 
-        <div className="absolute inset-[13%] rounded-full border border-cyan-300/[0.08]" />
+        <div className="absolute inset-[13%] rounded-full border border-[#4a4a4a]/10" />
 
-        <div className="absolute inset-[24%] rounded-full border border-white/[0.05]" />
+        <div className="absolute inset-[24%] rounded-full border border-[#000000]/10" />
 
-        <div className="absolute inset-[34%] rounded-full border border-cyan-300/[0.06]" />
+        <div className="absolute inset-[34%] rounded-full border border-[#4a4a4a]/10" />
 
-        <div className="absolute left-1/2 top-1/2 flex h-60 w-60 -translate-x-1/2 -translate-y-1/2 animate-float items-center justify-center rounded-full border border-white/10 bg-[#0c0f15]/85 shadow-[0_0_110px_rgba(34,211,238,0.11)] backdrop-blur-2xl">
+        <div className="absolute left-1/2 top-1/2 flex h-60 w-60 -translate-x-1/2 -translate-y-1/2 animate-float items-center justify-center rounded-full border border-[#000000]/10 bg-[#f5f3f0]/85 shadow-[0_0_100px_rgba(0,0,0,0.10)] backdrop-blur-xl">
 
           <div className="text-center">
 
-            <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl border border-cyan-400/25 bg-cyan-400/[0.08] shadow-[0_0_35px_rgba(34,211,238,0.08)]">
-              <span className="text-2xl font-semibold text-cyan-300">
-                F
+            <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl border border-[#4a4a4a]/20 bg-[#d4d0c8]/35">
+              <span className="text-2xl font-semibold text-[#000000]">
+                T
               </span>
             </div>
 
-            <p className="text-[10px] uppercase tracking-[0.35em] text-white/25">
+            <p className="text-[10px] uppercase tracking-[0.35em] text-[#4a4a4a]/60">
               Trama Branding
             </p>
 
-            <p className="mt-3 text-sm font-medium text-white/80">
-              Crescimento com direção.
+            <p className="mt-3 text-sm font-medium text-[#111111]">
+              Estratégia que ganha forma.
             </p>
 
           </div>
@@ -302,13 +336,13 @@ export default function Home() {
 
         <div className="absolute left-[2%] top-[18%] animate-float-slow">
 
-          <div className="rounded-2xl border border-white/10 bg-[#11141b]/90 px-5 py-4 shadow-2xl backdrop-blur-xl">
+          <div className="rounded-2xl border border-[#4a4a4a]/15 bg-white/55 px-5 py-4 shadow-xl backdrop-blur-xl">
 
-            <p className="text-[9px] uppercase tracking-[0.2em] text-white/25">
+            <p className="text-[9px] uppercase tracking-[0.2em] text-[#4a4a4a]/55">
               Estratégia
             </p>
 
-            <p className="mt-2 text-xs font-semibold text-white/80">
+            <p className="mt-2 text-xs font-semibold text-[#111111]">
               POSICIONAMENTO
             </p>
 
@@ -317,14 +351,14 @@ export default function Home() {
 
         <div className="absolute right-[0%] top-[12%] animate-float">
 
-          <div className="rounded-2xl border border-cyan-400/20 bg-cyan-400/[0.055] px-5 py-4 shadow-2xl backdrop-blur-xl">
+          <div className="rounded-2xl border border-[#4a4a4a]/15 bg-[#d4d0c8]/35 px-5 py-4 shadow-xl backdrop-blur-xl">
 
-            <p className="text-[9px] uppercase tracking-[0.2em] text-cyan-300/50">
-              Inteligência
+            <p className="text-[9px] uppercase tracking-[0.2em] text-[#4a4a4a]/70">
+              Marca
             </p>
 
-            <p className="mt-2 text-xs font-semibold text-cyan-300">
-              DADOS
+            <p className="mt-2 text-xs font-semibold text-[#000000]">
+              IDENTIDADE
             </p>
 
           </div>
@@ -332,14 +366,14 @@ export default function Home() {
 
         <div className="absolute bottom-[18%] left-[0%] animate-float-slow">
 
-          <div className="rounded-2xl border border-white/10 bg-[#11141b]/90 px-5 py-4 shadow-2xl backdrop-blur-xl">
+          <div className="rounded-2xl border border-[#4a4a4a]/15 bg-white/55 px-5 py-4 shadow-xl backdrop-blur-xl">
 
-            <p className="text-[9px] uppercase tracking-[0.2em] text-white/25">
+            <p className="text-[9px] uppercase tracking-[0.2em] text-[#4a4a4a]/55">
               Presença
             </p>
 
-            <p className="mt-2 text-xs font-semibold text-white/80">
-              CONTEÚDO
+            <p className="mt-2 text-xs font-semibold text-[#111111]">
+              COMUNICAÇÃO
             </p>
 
           </div>
@@ -347,42 +381,42 @@ export default function Home() {
 
         <div className="absolute bottom-[7%] right-[6%] animate-float">
 
-          <div className="rounded-2xl border border-white/10 bg-[#11141b]/90 px-5 py-4 shadow-2xl backdrop-blur-xl">
+          <div className="rounded-2xl border border-[#4a4a4a]/15 bg-white/55 px-5 py-4 shadow-xl backdrop-blur-xl">
 
-            <p className="text-[9px] uppercase tracking-[0.2em] text-white/25">
-              Operação
+            <p className="text-[9px] uppercase tracking-[0.2em] text-[#4a4a4a]/55">
+              Crescimento
             </p>
 
-            <p className="mt-2 text-xs font-semibold text-white/80">
-              AUTOMAÇÃO
+            <p className="mt-2 text-xs font-semibold text-[#111111]">
+              EVOLUÇÃO
             </p>
 
           </div>
         </div>
 
-        <div className="absolute left-[25%] top-[18%] h-2 w-2 animate-pulse-dot rounded-full bg-cyan-300" />
+        <div className="absolute left-[25%] top-[18%] h-2 w-2 rounded-full bg-[#4a4a4a]" />
 
-        <div className="absolute right-[25%] top-[28%] h-2 w-2 animate-pulse-dot rounded-full bg-cyan-300" />
+        <div className="absolute right-[25%] top-[28%] h-2 w-2 rounded-full bg-[#4a4a4a]" />
 
-        <div className="absolute bottom-[27%] left-[19%] h-2 w-2 animate-pulse-dot rounded-full bg-cyan-300" />
+        <div className="absolute bottom-[27%] left-[19%] h-2 w-2 rounded-full bg-[#4a4a4a]" />
 
-        <div className="absolute bottom-[18%] right-[31%] h-1.5 w-1.5 animate-pulse-dot rounded-full bg-cyan-300" />
+        <div className="absolute bottom-[18%] right-[31%] h-1.5 w-1.5 rounded-full bg-[#4a4a4a]" />
 
-        <div className="absolute left-[27%] top-[20%] h-px w-[23%] rotate-[25deg] bg-gradient-to-r from-cyan-300/30 to-transparent" />
+        <div className="absolute left-[27%] top-[20%] h-px w-[23%] rotate-[25deg] bg-gradient-to-r from-[#4a4a4a]/30 to-transparent" />
 
-        <div className="absolute right-[24%] top-[31%] h-px w-[19%] -rotate-[18deg] bg-gradient-to-l from-cyan-300/25 to-transparent" />
+        <div className="absolute right-[24%] top-[31%] h-px w-[19%] -rotate-[18deg] bg-gradient-to-l from-[#4a4a4a]/25 to-transparent" />
 
-        <div className="absolute bottom-[29%] left-[24%] h-px w-[22%] -rotate-[22deg] bg-gradient-to-r from-cyan-300/25 to-transparent" />
+        <div className="absolute bottom-[29%] left-[24%] h-px w-[22%] -rotate-[22deg] bg-gradient-to-r from-[#4a4a4a]/25 to-transparent" />
 
       </div>
     </div>
   </div>
 
   <div className="pointer-events-none absolute bottom-8 left-1/2 hidden -translate-x-1/2 items-center gap-3 lg:flex">
-    <span className="h-1.5 w-1.5 animate-pulse-dot rounded-full bg-cyan-300" />
+    <span className="h-1.5 w-1.5 rounded-full bg-[#4a4a4a]" />
 
-    <span className="text-[10px] uppercase tracking-[0.25em] text-white/20">
-      Planejamento em movimento
+    <span className="text-[10px] uppercase tracking-[0.25em] text-[#4a4a4a]/45">
+      Estratégia em movimento
     </span>
   </div>
 </section>
@@ -804,141 +838,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ========================================================= */}
-      {/* PORTFÓLIO */}
-      {/* ========================================================= */}
-
-      <section
-        id="cases"
-        className="border-t border-white/[0.06] bg-[#0a0c11] px-6 py-32 lg:px-8"
-      >
-        <div className="mx-auto max-w-7xl">
-          <div className="max-w-4xl">
-            <p className="text-xs font-medium uppercase tracking-[0.25em] text-cyan-300/70">
-              07 — Portfólio
-            </p>
-
-            <h2 className="mt-6 text-4xl font-semibold leading-tight tracking-[-0.045em] sm:text-5xl lg:text-6xl">
-              Não mostramos apenas o que fazemos.
-              <span className="block text-white/30">
-                Mostramos como pensamos.
-              </span>
-            </h2>
-
-            <p className="mt-6 max-w-2xl text-base leading-7 text-white/45 sm:text-lg">
-              Cada projeto nasce de um desafio real. A partir dele,
-              desenvolvemos uma direção, colocamos a estratégia em prática e
-              acompanhamos sua evolução.
-            </p>
-          </div>
-
-          <div className="mt-16 space-y-8">
-            {cases.map((item) => (
-              <article
-                key={item.number}
-                className="group overflow-hidden rounded-[2rem] border border-white/[0.08] bg-[#0d1016] transition duration-500 hover:border-cyan-400/20"
-              >
-                <div className="grid lg:grid-cols-[0.95fr_1.05fr]">
-                  <div className="relative min-h-[380px] overflow-hidden bg-gradient-to-br from-cyan-400/[0.08] via-[#11151d] to-[#08090d]">
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(34,211,238,0.18),transparent_42%)] transition duration-700 group-hover:scale-110" />
-
-                    <div className="absolute inset-[10%] rounded-[2rem] border border-white/[0.06]" />
-
-                    <div className="absolute inset-[18%] rounded-[1.5rem] border border-cyan-400/[0.08]" />
-
-                    <div className="absolute left-1/2 top-1/2 flex h-36 w-36 -translate-x-1/2 -translate-y-1/2 animate-float items-center justify-center rounded-full border border-white/10 bg-[#0d1016]/75 shadow-[0_0_80px_rgba(34,211,238,0.08)] backdrop-blur-xl">
-                      <div className="text-center">
-                        <span className="text-xs uppercase tracking-[0.25em] text-cyan-300/60">
-                          Case
-                        </span>
-
-                        <p className="mt-2 text-3xl font-semibold">
-                          {item.number}
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="absolute left-8 top-8 rounded-full border border-white/10 bg-black/20 px-3 py-1.5 text-[11px] text-white/50 backdrop-blur-md">
-                      {item.category}
-                    </div>
-
-                    <div className="absolute bottom-8 left-8 right-8">
-                      <p className="text-xs uppercase tracking-[0.2em] text-cyan-300/60">
-                        Trama Branding
-                      </p>
-
-                      <p className="mt-2 text-sm text-white/45">
-                        {item.subtitle}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="p-8 lg:p-10">
-                    <div className="flex items-start justify-between gap-5">
-                      <div>
-                        <span className="text-xs uppercase tracking-[0.2em] text-cyan-300/60">
-                          Projeto {item.number}
-                        </span>
-
-                        <h3 className="mt-3 text-3xl font-medium tracking-[-0.03em] sm:text-4xl">
-                          {item.title}
-                        </h3>
-                      </div>
-
-                      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-white/45 transition group-hover:border-cyan-400/30 group-hover:text-cyan-300">
-                        ↗
-                      </div>
-                    </div>
-
-                    <p className="mt-6 text-base leading-7 text-white/50">
-                      {item.description}
-                    </p>
-
-                    <div className="mt-10 grid gap-8 sm:grid-cols-2">
-                      <div>
-                        <p className="text-xs uppercase tracking-[0.18em] text-white/25">
-                          Desafio
-                        </p>
-
-                        <p className="mt-3 text-sm leading-6 text-white/45">
-                          {item.challenge}
-                        </p>
-                      </div>
-
-                      <div>
-                        <p className="text-xs uppercase tracking-[0.18em] text-white/25">
-                          Solução
-                        </p>
-
-                        <p className="mt-3 text-sm leading-6 text-white/45">
-                          {item.solution}
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="mt-10 flex flex-wrap gap-2 border-t border-white/[0.07] pt-7">
-                      {item.results.map((result) => (
-                        <span
-                          key={result}
-                          className="rounded-full border border-white/[0.08] bg-white/[0.02] px-3 py-1.5 text-[11px] text-white/45"
-                        >
-                          {result}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* ========================================================= */}
       {/* SHOWCASE CINEMATOGRÁFICO */}
       {/* ========================================================= */}
 
-      <CaseShowcase />
+  
 
       {/* ========================================================= */}
       {/* EQUIPE */}

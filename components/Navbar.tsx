@@ -7,7 +7,6 @@ const navItems = [
   { label: "Nossa visão", href: "#visao" },
   { label: "Serviços", href: "#servicos" },
   { label: "Método", href: "#processo" },
-  { label: "Cases", href: "#cases" },
   { label: "Equipe", href: "#equipe" },
 ];
 
@@ -55,33 +54,27 @@ export default function Navbar() {
             scrolled ? "h-16" : "h-20"
           }`}
         >
-          {/* LOGO */}
+ {/* LOGO */}
 
-          <a
-            href="#"
-            onClick={closeMenu}
-            className="group flex items-center gap-3"
-            aria-label="Trama Branding- início"
-          >
-            <div
-              className={`flex items-center justify-center rounded-full border transition-all duration-500 ${
-                scrolled
-                  ? "h-8 w-8 border-cyan-400/25 bg-cyan-400/[0.06]"
-                  : "h-9 w-9 border-white/20 bg-white/[0.04]"
-              } group-hover:border-cyan-400/50 group-hover:bg-cyan-400/10`}
-            >
-              <span className="text-sm font-semibold">F</span>
-            </div>
+<a
+  href="#"
+  onClick={closeMenu}
+  className="group flex items-center gap-3"
+  aria-label="Trama Branding - início"
+>
+  <img
+    src="/images/logo.png"
+    alt="Trama Branding"
+    className="h-10 w-auto object-contain transition duration-300 group-hover:scale-[1.03]"
+  />
 
-            <span
-              className={`font-semibold tracking-[-0.03em] transition-all duration-500 ${
-                scrolled ? "text-base" : "text-lg"
-              }`}
-            >
-              Trama<span className="text-cyan-400">Branding</span>
-            </span>
-          </a>
-
+ <span
+  className="text-[21px] font-normal tracking-[0.02em] text-white/85 transition duration-300 group-hover:text-[#d4d0c8]"
+  style={{ fontFamily: "'Cormorant Garamond', serif" }}
+>
+  Trama Branding
+</span>
+</a>
           {/* DESKTOP NAV */}
 
           <nav className="hidden items-center gap-7 lg:flex">
