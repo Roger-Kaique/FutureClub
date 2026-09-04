@@ -184,7 +184,7 @@ export default function OperationsSection() {
               </span>
 
               <span>
-                TRAMA BRANDUNG
+               TRAMA BRANDING
               </span>
             </div>
 

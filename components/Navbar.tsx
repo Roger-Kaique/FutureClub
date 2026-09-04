@@ -42,7 +42,7 @@ export default function Navbar() {
       <nav className="mx-auto flex h-[76px] w-full max-w-[1400px] items-center justify-between px-6 md:px-10 lg:px-14">
         {/* LOGO */}
         <a
-          href="#top"
+          href="#sobre"
           className="flex items-center gap-3"
           aria-label="Trama Branding - Início"
         >
@@ -68,7 +68,7 @@ export default function Navbar() {
         {/* LINKS */}
         <div className="hidden items-center gap-7 md:flex">
           <a
-            href="#top"
+          href="#sobre"
             className="text-[12px] uppercase tracking-[0.18em] text-white/70 transition-colors duration-300 hover:text-white"
           >
             Início
