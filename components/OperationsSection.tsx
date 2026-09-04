@@ -125,7 +125,7 @@ export default function OperationsSection() {
         <div className="operations-header">
           <div>
             <p className="section-eyebrow">
-              04 — Áreas de operação
+              03 — Áreas de operação
             </p>
 
             <h2>

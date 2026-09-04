@@ -10,7 +10,7 @@ export default function TeamSection() {
         <div className="grid gap-12 lg:grid-cols-[0.7fr_1.3fr]">
           <div>
             <p className="text-xs font-medium uppercase tracking-[0.25em] text-cyan-300/70">
-              08 — Quem está por trás
+              09 — Quem está por trás
             </p>
 
             <div className="mt-8 h-px w-20 bg-cyan-400/40" />

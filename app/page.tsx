@@ -3,9 +3,7 @@ import Navbar from "../components/Navbar";
 import MovingGallery from "../components/MovingGallery";
 import TeamSection from "../components/TeamSection";
 import OperationsSection from "../components/OperationsSection";
-
 import TransitionBand from "../components/TransitionBand";
-
 
 const services = [
   {
@@ -147,279 +145,148 @@ export default function Home() {
       {/* HERO */}
       {/* ========================================================= */}
 
-<section className="relative flex min-h-screen items-center overflow-hidden bg-[#f5f3f0] pt-20 text-[#000000]">
- <div className="hero-photo-stream" aria-hidden="true">
-  <div className="hero-photo-track hero-photo-track-one">
-    {[
-      "/images/gallery01.jpg",
-      "/images/photo1.jpg",
-      "/images/case1.jpg",
-      "/images/gallery04.jpg",
-      "/images/photo4.jpg",
-      "/images/case3.jpg",
-      "/images/gallery06.jpg",
-      "/images/photo2.jpg",
-    ].map((image, index) => (
-      <div className="hero-photo-card" key={`hero-one-${index}`}>
-        <img src={image} alt="" />
-      </div>
-    ))}
-  </div>
+      <section className="relative flex min-h-screen items-center overflow-hidden bg-[#f5f3f0] pt-20 text-[#000000]">
+        <div className="hero-photo-stream" aria-hidden="true">
+          <div className="hero-photo-track hero-photo-track-one">
+            {[ "/images/trama1.jpg", "/images/trama2.jpg", "/images/gallery01.jpg", "/images/trama3.jpg", "/images/case1.jpg", "/images/trama4.jpg", "/images/gallery04.jpg", "/images/trama5.jpg", "/images/gallery06.jpg", "/images/trama6.jpg", ].map((image, index) => (
+              <div
+                className="hero-photo-card"
+                key={`hero-one-${index}`}
+              >
+                <img src={image} alt="" />
+              </div>
+            ))}
+          </div>
 
-  <div className="hero-photo-track hero-photo-track-two">
-    {[
-      "/images/photo3.jpg",
-      "/images/gallery02.jpg",
-      "/images/case2.jpg",
-      "/images/gallery05.jpg",
-      "/images/photo5.jpg",
-      "/images/gallery03.jpg",
-      "/images/case1.jpg",
-      "/images/gallery01.jpg",
-    ].map((image, index) => (
-      <div className="hero-photo-card hero-photo-card-small" key={`hero-two-${index}`}>
-        <img src={image} alt="" />
-      </div>
-    ))}
-  </div>
+          <div className="hero-photo-track hero-photo-track-two">
+            {[ "/images/trama7.jpg", "/images/gallery02.jpg", "/images/trama8.jpg", "/images/case2.jpg", "/images/trama9.jpg", "/images/gallery05.jpg", "/images/gallery03.jpg", "/images/case3.jpg", "/images/gallery01.jpg", ].map((image, index) => (
+              <div
+                className="hero-photo-card hero-photo-card-small"
+                key={`hero-two-${index}`}
+              >
+                <img src={image} alt="" />
+              </div>
+            ))}
+          </div>
 
-  <div className="hero-photo-vignette" />
-</div>
-  <div className="pointer-events-none absolute left-1/2 top-1/2 h-[700px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#d4d0c8]/30 blur-[150px]" />
-
-  <div
-    className="pointer-events-none absolute inset-0 opacity-[0.18]"
-    style={{
-      backgroundImage:
-        "linear-gradient(#000000 1px, transparent 1px), linear-gradient(90deg, #000000 1px, transparent 1px)",
-      backgroundSize: "90px 90px",
-      maskImage:
-        "radial-gradient(circle at center, black 5%, transparent 72%)",
-      WebkitMaskImage:
-        "radial-gradient(circle at center, black 5%, transparent 72%)",
-    }}
-  />
-
-  <div className="pointer-events-none absolute -right-20 top-20 h-[300px] w-[300px] rounded-full border border-[#4a4a4a]/10" />
-
-  <div className="pointer-events-none absolute bottom-[-120px] left-[-80px] h-[300px] w-[300px] rounded-full border border-[#4a4a4a]/10" />
-
-  <div className="relative mx-auto grid w-full max-w-7xl items-center gap-16 px-6 py-20 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:py-24">
-
-    <div className="max-w-3xl animate-fade-up">
-
-      <div className="mb-8 inline-flex items-center gap-3 rounded-full border border-[#4a4a4a]/20 bg-white/40 px-4 py-2.5 backdrop-blur-xl">
-        <span className="h-2 w-2 rounded-full bg-[#4a4a4a]" />
-
-        <span className="text-[10px] font-medium uppercase tracking-[0.24em] text-[#4a4a4a]">
-          Estratégia • Branding • Crescimento
-        </span>
-      </div>
-
-      <h1 className="max-w-5xl text-5xl font-semibold leading-[0.9] tracking-[-0.065em] sm:text-6xl md:text-7xl lg:text-[5.5rem] xl:text-[6.4rem]">
-        Marcas fortes
-        <span className="block text-[#111111]">
-          não acontecem
-        </span>
-        <span className="block text-[#4a4a4a]/45">
-          por acaso.
-        </span>
-      </h1>
-
-      <div className="mt-8 flex items-center gap-4">
-        <span className="h-px w-14 bg-[#4a4a4a]" />
-
-        <p className="text-lg font-medium tracking-[-0.02em] text-[#4a4a4a] sm:text-xl">
-          Acontecem com estratégia.
-        </p>
-      </div>
-
-      <p className="mt-8 max-w-2xl text-base leading-8 text-[#4a4a4a] sm:text-lg">
-        A Trama Branding transforma estratégia em presença, conectando
-        posicionamento, identidade, comunicação e tecnologia para construir
-        marcas mais relevantes e preparadas para crescer.
-      </p>
-
-      <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-
-        <a
-          href="#diagnostico"
-          className="group inline-flex items-center justify-center gap-4 rounded-full bg-[#000000] px-7 py-4 text-sm font-semibold text-[#f5f3f0] shadow-[0_15px_40px_rgba(0,0,0,0.14)] transition duration-300 hover:bg-[#4a4a4a]"
-        >
-          Vamos conversar
-
-          <span className="transition-transform duration-300 group-hover:translate-x-1">
-            →
-          </span>
-        </a>
-
-        <a
-          href="#sobre"
-          className="group inline-flex items-center justify-center gap-3 rounded-full border border-[#4a4a4a]/25 bg-white/30 px-7 py-4 text-sm font-medium text-[#111111] backdrop-blur-xl transition duration-300 hover:border-[#000000]/30 hover:bg-white/50"
-        >
-          Conhecer a Trama
-
-          <span className="transition-transform duration-300 group-hover:translate-y-0.5">
-            ↓
-          </span>
-        </a>
-
-      </div>
-
-      <div className="mt-14 grid max-w-2xl grid-cols-3 border-t border-[#4a4a4a]/15">
-
-        <div className="border-r border-[#4a4a4a]/15 py-6 pr-5">
-          <p className="text-[9px] uppercase tracking-[0.2em] text-[#4a4a4a]/60">
-            Estratégia
-          </p>
-
-          <p className="mt-2 text-sm text-[#111111]">
-            Direção
-          </p>
+          <div className="hero-photo-vignette" />
         </div>
 
-        <div className="border-r border-[#4a4a4a]/15 px-5 py-6">
-          <p className="text-[9px] uppercase tracking-[0.2em] text-[#4a4a4a]/60">
-            Branding
-          </p>
+        <div className="pointer-events-none absolute left-1/2 top-1/2 h-[700px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#d4d0c8]/30 blur-[150px]" />
 
-          <p className="mt-2 text-sm text-[#111111]">
-            Identidade
-          </p>
-        </div>
+        <div
+          className="pointer-events-none absolute inset-0 opacity-[0.14]"
+          style={{
+            backgroundImage:
+              "linear-gradient(#000000 1px, transparent 1px), linear-gradient(90deg, #000000 1px, transparent 1px)",
+            backgroundSize: "90px 90px",
+            maskImage:
+              "radial-gradient(circle at center, black 5%, transparent 72%)",
+            WebkitMaskImage:
+              "radial-gradient(circle at center, black 5%, transparent 72%)",
+          }}
+        />
 
-        <div className="py-6 pl-5">
-          <p className="text-[9px] uppercase tracking-[0.2em] text-[#4a4a4a]/60">
-            Crescimento
-          </p>
+        <div className="relative z-10 mx-auto grid w-full max-w-7xl items-center gap-16 px-6 py-20 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:py-24">
+          <div className="max-w-3xl animate-fade-up">
+            <div className="mb-8 inline-flex items-center gap-3 rounded-full border border-[#4a4a4a]/20 bg-[#f5f3f0]/75 px-4 py-2.5 backdrop-blur-xl">
+              <span className="h-2 w-2 rounded-full bg-[#4a4a4a]" />
 
-          <p className="mt-2 text-sm text-[#111111]">
-            Evolução
-          </p>
-        </div>
-
-      </div>
-    </div>
-
-    <div className="relative mx-auto hidden w-full max-w-xl animate-fade-in lg:block">
-
-      <div className="relative aspect-square">
-
-        <div className="absolute inset-[4%] rounded-full border border-[#4a4a4a]/15" />
-
-        <div className="absolute inset-[13%] rounded-full border border-[#4a4a4a]/10" />
-
-        <div className="absolute inset-[24%] rounded-full border border-[#000000]/10" />
-
-        <div className="absolute inset-[34%] rounded-full border border-[#4a4a4a]/10" />
-
-        <div className="absolute left-1/2 top-1/2 flex h-60 w-60 -translate-x-1/2 -translate-y-1/2 animate-float items-center justify-center rounded-full border border-[#000000]/10 bg-[#f5f3f0]/85 shadow-[0_0_100px_rgba(0,0,0,0.10)] backdrop-blur-xl">
-
-          <div className="text-center">
-
-            <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl border border-[#4a4a4a]/20 bg-[#d4d0c8]/35">
-              <span className="text-2xl font-semibold text-[#000000]">
-                T
+              <span className="text-[10px] font-medium uppercase tracking-[0.24em] text-[#4a4a4a]">
+                Estratégia • Branding • Crescimento
               </span>
             </div>
 
-            <p className="text-[10px] uppercase tracking-[0.35em] text-[#4a4a4a]/60">
-              Trama Branding
+            <h1 className="max-w-5xl text-5xl font-semibold leading-[0.9] tracking-[-0.065em] sm:text-6xl md:text-7xl lg:text-[5.5rem] xl:text-[6.4rem]">
+              Marcas fortes
+              <span className="block text-[#111111]">
+                não acontecem
+              </span>
+              <span className="block text-[#4a4a4a]/45">
+                por acaso.
+              </span>
+            </h1>
+
+            <div className="mt-8 flex items-center gap-4">
+              <span className="h-px w-14 bg-[#4a4a4a]" />
+
+              <p className="text-lg font-medium tracking-[-0.02em] text-[#4a4a4a] sm:text-xl">
+                Acontecem com estratégia.
+              </p>
+            </div>
+
+            <p className="mt-8 max-w-2xl text-base leading-8 text-[#4a4a4a] sm:text-lg">
+              A Trama Branding transforma estratégia em presença, conectando
+              posicionamento, identidade, comunicação e tecnologia para
+              construir marcas mais relevantes e preparadas para crescer.
             </p>
 
-            <p className="mt-3 text-sm font-medium text-[#111111]">
-              Estratégia que ganha forma.
-            </p>
+            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+              <a
+                href="#diagnostico"
+                className="group inline-flex items-center justify-center gap-4 rounded-full bg-[#000000] px-7 py-4 text-sm font-semibold text-[#f5f3f0] shadow-[0_15px_40px_rgba(0,0,0,0.14)] transition duration-300 hover:bg-[#4a4a4a]"
+              >
+                Vamos conversar
 
+                <span className="transition-transform duration-300 group-hover:translate-x-1">
+                  →
+                </span>
+              </a>
+
+              <a
+                href="#sobre"
+                className="group inline-flex items-center justify-center gap-3 rounded-full border border-[#4a4a4a]/25 bg-[#f5f3f0]/50 px-7 py-4 text-sm font-medium text-[#111111] backdrop-blur-xl transition duration-300 hover:border-[#000000]/30 hover:bg-white/60"
+              >
+                Conhecer a Trama
+
+                <span className="transition-transform duration-300 group-hover:translate-y-0.5">
+                  ↓
+                </span>
+              </a>
+            </div>
+
+            <div className="mt-14 grid max-w-2xl grid-cols-3 border-t border-[#4a4a4a]/15">
+              <div className="border-r border-[#4a4a4a]/15 py-6 pr-5">
+                <p className="text-[9px] uppercase tracking-[0.2em] text-[#4a4a4a]/60">
+                  Estratégia
+                </p>
+
+                <p className="mt-2 text-sm text-[#111111]">
+                  Direção
+                </p>
+              </div>
+
+              <div className="border-r border-[#4a4a4a]/15 px-5 py-6">
+                <p className="text-[9px] uppercase tracking-[0.2em] text-[#4a4a4a]/60">
+                  Branding
+                </p>
+
+                <p className="mt-2 text-sm text-[#111111]">
+                  Identidade
+                </p>
+              </div>
+
+              <div className="py-6 pl-5">
+                <p className="text-[9px] uppercase tracking-[0.2em] text-[#4a4a4a]/60">
+                  Crescimento
+                </p>
+
+                <p className="mt-2 text-sm text-[#111111]">
+                  Evolução
+                </p>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="absolute left-[2%] top-[18%] animate-float-slow">
+        <div className="pointer-events-none absolute bottom-8 left-1/2 z-10 hidden -translate-x-1/2 items-center gap-3 lg:flex">
+          <span className="h-1.5 w-1.5 rounded-full bg-[#4a4a4a]" />
 
-          <div className="rounded-2xl border border-[#4a4a4a]/15 bg-white/55 px-5 py-4 shadow-xl backdrop-blur-xl">
-
-            <p className="text-[9px] uppercase tracking-[0.2em] text-[#4a4a4a]/55">
-              Estratégia
-            </p>
-
-            <p className="mt-2 text-xs font-semibold text-[#111111]">
-              POSICIONAMENTO
-            </p>
-
-          </div>
+          <span className="text-[10px] uppercase tracking-[0.25em] text-[#4a4a4a]/45">
+            Trama Branding
+          </span>
         </div>
-
-        <div className="absolute right-[0%] top-[12%] animate-float">
-
-          <div className="rounded-2xl border border-[#4a4a4a]/15 bg-[#d4d0c8]/35 px-5 py-4 shadow-xl backdrop-blur-xl">
-
-            <p className="text-[9px] uppercase tracking-[0.2em] text-[#4a4a4a]/70">
-              Marca
-            </p>
-
-            <p className="mt-2 text-xs font-semibold text-[#000000]">
-              IDENTIDADE
-            </p>
-
-          </div>
-        </div>
-
-        <div className="absolute bottom-[18%] left-[0%] animate-float-slow">
-
-          <div className="rounded-2xl border border-[#4a4a4a]/15 bg-white/55 px-5 py-4 shadow-xl backdrop-blur-xl">
-
-            <p className="text-[9px] uppercase tracking-[0.2em] text-[#4a4a4a]/55">
-              Presença
-            </p>
-
-            <p className="mt-2 text-xs font-semibold text-[#111111]">
-              COMUNICAÇÃO
-            </p>
-
-          </div>
-        </div>
-
-        <div className="absolute bottom-[7%] right-[6%] animate-float">
-
-          <div className="rounded-2xl border border-[#4a4a4a]/15 bg-white/55 px-5 py-4 shadow-xl backdrop-blur-xl">
-
-            <p className="text-[9px] uppercase tracking-[0.2em] text-[#4a4a4a]/55">
-              Crescimento
-            </p>
-
-            <p className="mt-2 text-xs font-semibold text-[#111111]">
-              EVOLUÇÃO
-            </p>
-
-          </div>
-        </div>
-
-        <div className="absolute left-[25%] top-[18%] h-2 w-2 rounded-full bg-[#4a4a4a]" />
-
-        <div className="absolute right-[25%] top-[28%] h-2 w-2 rounded-full bg-[#4a4a4a]" />
-
-        <div className="absolute bottom-[27%] left-[19%] h-2 w-2 rounded-full bg-[#4a4a4a]" />
-
-        <div className="absolute bottom-[18%] right-[31%] h-1.5 w-1.5 rounded-full bg-[#4a4a4a]" />
-
-        <div className="absolute left-[27%] top-[20%] h-px w-[23%] rotate-[25deg] bg-gradient-to-r from-[#4a4a4a]/30 to-transparent" />
-
-        <div className="absolute right-[24%] top-[31%] h-px w-[19%] -rotate-[18deg] bg-gradient-to-l from-[#4a4a4a]/25 to-transparent" />
-
-        <div className="absolute bottom-[29%] left-[24%] h-px w-[22%] -rotate-[22deg] bg-gradient-to-r from-[#4a4a4a]/25 to-transparent" />
-
-      </div>
-    </div>
-  </div>
-
-  <div className="pointer-events-none absolute bottom-8 left-1/2 hidden -translate-x-1/2 items-center gap-3 lg:flex">
-    <span className="h-1.5 w-1.5 rounded-full bg-[#4a4a4a]" />
-
-    <span className="text-[10px] uppercase tracking-[0.25em] text-[#4a4a4a]/45">
-      Estratégia em movimento
-    </span>
-  </div>
-</section>
+      </section>
 
       {/* ========================================================= */}
       {/* SOBRE */}
@@ -454,8 +321,8 @@ export default function Home() {
 
             <div className="mt-8 grid gap-6 text-base leading-7 text-white/50 sm:text-lg">
               <p>
-                A Trama Branding nasceu da união entre comunicação, estratégia e
-                tecnologia.
+                A Trama Branding nasceu da união entre comunicação, estratégia
+                e tecnologia.
               </p>
 
               <p>
@@ -536,7 +403,7 @@ export default function Home() {
 
         <div className="relative mx-auto max-w-7xl">
           <p className="text-xs font-medium uppercase tracking-[0.25em] text-cyan-300/70">
-            02 — Nossa visão
+            04 — Nossa visão
           </p>
 
           <div className="mt-10 max-w-5xl">
@@ -568,9 +435,13 @@ export default function Home() {
               ],
             ].map(([number, title, text]) => (
               <div key={number}>
-                <span className="text-sm text-cyan-300">{number}</span>
+                <span className="text-sm text-cyan-300">
+                  {number}
+                </span>
 
-                <h3 className="mt-4 text-xl font-medium">{title}</h3>
+                <h3 className="mt-4 text-xl font-medium">
+                  {title}
+                </h3>
 
                 <p className="mt-3 text-sm leading-6 text-white/45">
                   {text}
@@ -592,7 +463,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl">
           <div className="max-w-3xl">
             <p className="text-xs font-medium uppercase tracking-[0.25em] text-cyan-300/70">
-              03 — O problema
+              05 — O problema
             </p>
 
             <h2 className="mt-6 text-4xl font-semibold leading-tight tracking-[-0.04em] sm:text-5xl lg:text-6xl">
@@ -638,7 +509,7 @@ export default function Home() {
           <div className="grid gap-16 lg:grid-cols-[0.8fr_1.2fr]">
             <div>
               <p className="text-xs font-medium uppercase tracking-[0.25em] text-cyan-300/70">
-                04 — Por que Trama Branding
+                06 — Por que Trama Branding
               </p>
 
               <h2 className="mt-6 max-w-lg text-4xl font-semibold leading-tight tracking-[-0.045em] sm:text-5xl lg:text-6xl">
@@ -700,9 +571,13 @@ export default function Home() {
                     key={item}
                     className="flex items-center gap-3 rounded-xl border border-white/[0.06] bg-white/[0.02] px-4 py-3"
                   >
-                    <span className="text-xs text-white/20">×</span>
+                    <span className="text-xs text-white/20">
+                      ×
+                    </span>
 
-                    <span className="text-sm text-white/35">{item}</span>
+                    <span className="text-sm text-white/35">
+                      {item}
+                    </span>
                   </div>
                 ))}
               </div>
@@ -728,9 +603,13 @@ export default function Home() {
                     key={item}
                     className="flex items-center gap-3 rounded-xl border border-cyan-400/10 bg-cyan-400/[0.04] px-4 py-3"
                   >
-                    <span className="text-xs text-cyan-300">✓</span>
+                    <span className="text-xs text-cyan-300">
+                      ✓
+                    </span>
 
-                    <span className="text-sm text-white/60">{item}</span>
+                    <span className="text-sm text-white/60">
+                      {item}
+                    </span>
                   </div>
                 ))}
               </div>
@@ -751,7 +630,7 @@ export default function Home() {
           <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
             <div>
               <p className="text-xs font-medium uppercase tracking-[0.25em] text-cyan-300/70">
-                05 — O que fazemos
+                07 — O que fazemos
               </p>
 
               <h2 className="mt-6 max-w-md text-4xl font-semibold leading-tight tracking-[-0.04em] sm:text-5xl">
@@ -812,7 +691,7 @@ export default function Home() {
       >
         <div className="mx-auto max-w-7xl">
           <p className="text-xs font-medium uppercase tracking-[0.25em] text-cyan-300/70">
-            06 — Nosso método
+            08 — Nosso método
           </p>
 
           <h2 className="mt-6 max-w-4xl text-4xl font-semibold tracking-[-0.045em] sm:text-5xl lg:text-6xl">
@@ -825,9 +704,13 @@ export default function Home() {
                 key={number}
                 className="rounded-3xl border border-white/[0.08] bg-white/[0.025] p-6 transition duration-300 hover:-translate-y-1 hover:border-cyan-400/20 hover:bg-cyan-400/[0.04]"
               >
-                <span className="text-sm text-cyan-300">{number}</span>
+                <span className="text-sm text-cyan-300">
+                  {number}
+                </span>
 
-                <h3 className="mt-8 text-xl font-medium">{title}</h3>
+                <h3 className="mt-8 text-xl font-medium">
+                  {title}
+                </h3>
 
                 <p className="mt-3 text-sm leading-6 text-white/40">
                   {description}
@@ -837,13 +720,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-
-      {/* ========================================================= */}
-      {/* SHOWCASE CINEMATOGRÁFICO */}
-      {/* ========================================================= */}
-
-  
 
       {/* ========================================================= */}
       {/* EQUIPE */}
@@ -869,7 +745,7 @@ export default function Home() {
 
         <div className="relative mx-auto max-w-5xl text-center">
           <p className="text-xs font-medium uppercase tracking-[0.25em] text-cyan-300/70">
-            09 — Próximo passo
+            10 — Próximo passo
           </p>
 
           <h2 className="mt-6 text-5xl font-semibold leading-[0.95] tracking-[-0.05em] sm:text-6xl lg:text-8xl">
@@ -883,7 +759,7 @@ export default function Home() {
           </p>
 
           <a
-           href="#diagnostico"
+            href="#diagnostico"
             className="group mt-10 inline-flex items-center gap-3 rounded-full bg-white px-7 py-4 text-sm font-semibold text-black transition hover:bg-cyan-300"
           >
             Quero transformar meu negócio
@@ -894,12 +770,6 @@ export default function Home() {
           </a>
         </div>
       </section>
-
-      {/* ========================================================= */}
-      {/* DIAGNÓSTICO INTERATIVO */}
-      {/* ========================================================= */}
-
-    
 
       {/* ========================================================= */}
       {/* FORMULÁRIO COMPLETO */}

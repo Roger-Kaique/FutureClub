@@ -80,6 +80,8 @@ export default function LeadForm() {
   const [selectedChallenges, setSelectedChallenges] = useState<string[]>([]);
   const [selectedInterests, setSelectedInterests] = useState<string[]>([]);
 
+  const [budgetError, setBudgetError] = useState("");
+
   const progress = useMemo(
     () => ((currentStep + 1) / steps.length) * 100,
     [currentStep],
@@ -90,6 +92,15 @@ export default function LeadForm() {
       ...current,
       [field]: value,
     }));
+  }
+
+  function selectBudget(value: string) {
+    setForm((current) => ({
+      ...current,
+      budget: value,
+    }));
+
+    setBudgetError("");
   }
 
   function toggleSelection(
@@ -108,23 +119,20 @@ export default function LeadForm() {
   function validateStep() {
     if (currentStep === 0) {
       if (!form.name || !form.company || !form.segment || !form.phone) {
-        alert("Preencha nome, empresa, segmento e WhatsApp.");
         return false;
       }
     }
 
     if (currentStep === 1 && !form.situation) {
-      alert("Selecione o momento atual do seu negócio.");
       return false;
     }
 
     if (currentStep === 4 && !form.objective.trim()) {
-      alert("Conte um pouco sobre o seu objetivo.");
       return false;
     }
 
     if (currentStep === 5 && !form.budget) {
-      alert("Selecione uma faixa de investimento.");
+      setBudgetError("Selecione uma faixa de investimento.");
       return false;
     }
 
@@ -148,7 +156,12 @@ export default function LeadForm() {
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    if (!validateStep()) {
+    if (currentStep !== 5) {
+      return;
+    }
+
+    if (!form.budget) {
+      setBudgetError("Selecione uma faixa de investimento.");
       return;
     }
 
@@ -194,6 +207,7 @@ export default function LeadForm() {
     setSelectedInterests([]);
     setCurrentStep(0);
     setSubmitted(false);
+    setBudgetError("");
   }
 
   if (submitted) {
@@ -272,7 +286,7 @@ export default function LeadForm() {
       <div className="relative mx-auto max-w-5xl">
         <div className="max-w-3xl">
           <p className="text-xs font-medium uppercase tracking-[0.25em] text-cyan-300/70">
-            10 — Diagnóstico
+            11 — Diagnóstico
           </p>
 
           <h2 className="mt-6 text-4xl font-semibold leading-tight tracking-[-0.045em] sm:text-5xl lg:text-6xl">
@@ -478,10 +492,28 @@ export default function LeadForm() {
                       key={option}
                       label={option}
                       selected={form.budget === option}
-                      onClick={() => updateField("budget", option)}
+                      onClick={() => selectBudget(option)}
                     />
                   ))}
                 </div>
+
+                {budgetError && (
+                  <p className="mt-4 text-sm text-red-400">
+                    {budgetError}
+                  </p>
+                )}
+
+                {form.budget && (
+                  <div className="mt-6 rounded-2xl border border-cyan-400/20 bg-cyan-400/[0.04] p-4">
+                    <p className="text-xs uppercase tracking-[0.18em] text-cyan-300/60">
+                      Faixa selecionada
+                    </p>
+
+                    <p className="mt-2 text-sm font-medium text-cyan-200">
+                      {form.budget}
+                    </p>
+                  </div>
+                )}
 
                 <div className="mt-8 rounded-2xl border border-white/[0.06] bg-white/[0.02] p-5">
                   <p className="text-xs uppercase tracking-[0.18em] text-white/25">

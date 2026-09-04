@@ -98,7 +98,7 @@ export default function DiagnosisSection() {
         <div className="diagnosis-intro">
           <div>
             <p className="section-eyebrow">
-              10 — Diagnóstico
+              11 — Diagnóstico
             </p>
 
             <h2>

@@ -6,7 +6,7 @@ const showcaseCases = [
       "Presença que deixa de ser postagem e passa a ser posicionamento.",
     description:
       "Estratégia de conteúdo, identidade e relacionamento para transformar uma presença digital em uma extensão real da marca.",
-    image: "/images/case1.jpg",
+    image: "/images/trama9.jpg",
     tags: ["Conteúdo", "Marca", "Instagram"],
   },
   {
@@ -16,7 +16,7 @@ const showcaseCases = [
       "Uma direção clara para o próximo estágio do negócio.",
     description:
       "Diagnóstico, planejamento e execução conectados aos objetivos da empresa.",
-    image: "/images/case2.jpg",
+    image: "/images/gallery04.jpg",
     tags: ["Planejamento", "Posicionamento", "Crescimento"],
   },
   {
@@ -26,7 +26,7 @@ const showcaseCases = [
       "Mais informação. Menos trabalho manual.",
     description:
       "Processos, automações e análise para transformar a operação em uma estrutura mais inteligente.",
-    image: "/images/case3.jpg",
+    image: "/images/trama5.jpg",
     tags: ["Dados", "Automação", "Processos"],
   },
 ];
@@ -49,8 +49,8 @@ export default function CaseShowcase() {
 
         <p className="case-showcase-description">
           Alguns negócios precisam de presença. Outros precisam de
-          posicionamento. Outros precisam reorganizar a operação. A Trama Branding
-          conecta essas necessidades em uma única visão.
+          posicionamento. Outros precisam reorganizar a operação. A Trama
+          Branding conecta essas necessidades em uma única visão.
         </p>
       </div>
 
@@ -73,7 +73,6 @@ export default function CaseShowcase() {
 
               <div className="case-showcase-top">
                 <span>{item.number}</span>
-
                 <span>{item.category}</span>
               </div>
 
@@ -97,15 +96,12 @@ export default function CaseShowcase() {
 
               <div className="case-showcase-tags">
                 {item.tags.map((tag) => (
-                  <span key={tag}>
-                    {tag}
-                  </span>
+                  <span key={tag}>{tag}</span>
                 ))}
               </div>
 
               <div className="case-showcase-link">
                 <span>Ver projeto</span>
-
                 <span>↗</span>
               </div>
             </div>
@@ -114,7 +110,7 @@ export default function CaseShowcase() {
       </div>
 
       <div className="case-showcase-end">
-        <p>Mais cases em breve</p>
+        <p>Mais projetos em breve</p>
 
         <span>
           Cada novo projeto adiciona uma nova história à Trama Branding.

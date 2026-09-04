@@ -497,6 +497,7 @@ button {
     transition-duration: 0.01ms !important;
   }
 }
+
 /* =========================================================
    DIAGNÓSTICO
 ========================================================= */
@@ -1391,6 +1392,7 @@ button {
     width: 40px;
   }
 }
+
 /* =========================================================
    CASE SHOWCASE
 ========================================================= */
@@ -1788,6 +1790,7 @@ button {
     font-size: 13px;
   }
 }
+
 /* =========================================================
    TRANSIÇÃO CINEMATOGRÁFICA
 ========================================================= */
@@ -1988,6 +1991,7 @@ button {
     animation: none;
   }
 }
+
 /* =========================================================
    PARALLAX IMAGES
 ========================================================= */
@@ -2059,6 +2063,7 @@ button {
     animation: none;
   }
 }
+
 /* =========================================================
    PARALLAX — EQUIPE
 ========================================================= */
@@ -2088,6 +2093,7 @@ button {
 #equipe article:hover .parallax-image {
   filter: grayscale(0%);
 }
+
 /* =========================================================
    CASES — FOTOS
 ========================================================= */
@@ -2180,6 +2186,7 @@ button {
     margin-top: 26px;
   }
 }
+
 /* ========================================================= */
 /* TRAMA BRANDING — HERO PHOTO STREAM */
 /* ========================================================= */
@@ -2366,4 +2373,23 @@ button {
   .hero-photo-track-two {
     animation: none;
   }
+}
+.gallery-photo-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.gallery-photo-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery-photo-overlay,
+.gallery-photo-content {
+  position: relative;
+  z-index: 2;
 }
